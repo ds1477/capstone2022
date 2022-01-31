@@ -10,6 +10,7 @@
 		1981CCA927A8761000FC099A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1981CCA827A8761000FC099A /* GoogleService-Info.plist */; };
 		1981CCAC27A877D100FC099A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1981CCAB27A877D100FC099A /* FirebaseAnalytics */; };
 		1981CCAE27A877D100FC099A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1981CCAD27A877D100FC099A /* FirebaseDatabase */; };
+		1981CCB027A87A6700FC099A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1981CCAF27A87A6700FC099A /* AppDelegate.swift */; };
 		19B30CD32799E2B600E8AB57 /* digidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B30CD22799E2B600E8AB57 /* digidApp.swift */; };
 		19B30CD52799E2B600E8AB57 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B30CD42799E2B600E8AB57 /* MainView.swift */; };
 		19B30CD72799E2B700E8AB57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B30CD62799E2B700E8AB57 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		1981CCA827A8761000FC099A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1981CCAF27A87A6700FC099A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19B30CCF2799E2B600E8AB57 /* digid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B30CD22799E2B600E8AB57 /* digidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = digidApp.swift; sourceTree = "<group>"; };
 		19B30CD42799E2B600E8AB57 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				19B30CD42799E2B600E8AB57 /* MainView.swift */,
 				19B30CD62799E2B700E8AB57 /* Assets.xcassets */,
 				19B30CD82799E2B700E8AB57 /* Preview Content */,
+				1981CCAF27A87A6700FC099A /* AppDelegate.swift */,
 			);
 			path = digid;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1981CCB027A87A6700FC099A /* AppDelegate.swift in Sources */,
 				19B30CD52799E2B600E8AB57 /* MainView.swift in Sources */,
 				19B30CD32799E2B600E8AB57 /* digidApp.swift in Sources */,
 			);
