@@ -15,7 +15,7 @@ struct MainView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 1.0))
                             .padding()
-                }
+                }.background(Color.red).ignoresSafeArea(.all)
         }
     }
 
