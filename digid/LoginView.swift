@@ -7,29 +7,33 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct LoginView: View {
+    @State var username: String = ""
+    @State var password: String = ""
+    
     var body: some View {
         ZStack {
             Color("deepRed").ignoresSafeArea(.all)
-            VStack {
+            VStack(spacing: 0) {
                         Text("digid")
                                 .font(.largeTitle)
                                 .fontWeight(.semibold)
-                                        .foregroundColor(Color.white)
+                                .foregroundColor(Color.white)
                         Text("A Rutgers Digital ID")
-                            .fontWeight(.light)
-                            .foregroundColor(Color.white)
-                    }
+                                .fontWeight(.light)
+                                .foregroundColor(Color.white)
+                            Spacer()
+            }
         }
     }
-}
 
-struct MainView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MainView()
+            LoginView()
                 
             
         }
     }
+}
 }
