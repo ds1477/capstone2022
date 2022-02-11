@@ -8,7 +8,7 @@ import SwiftUI
 struct digidApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            ContentView()
         }
     }
 }
