@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FirebaseAuth
+
 
 struct ContentView: View {
     @State private var netID: String = ""
