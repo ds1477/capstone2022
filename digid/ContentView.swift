@@ -52,6 +52,7 @@ class AppViewModel: ObservableObject {
 struct ContentView: View {
     
     @EnvironmentObject var viewModel: AppViewModel
+    @State var isNavigationBarHidden: Bool = true
     
     var body: some View {
         NavigationView {
@@ -73,9 +74,15 @@ struct ContentView: View {
                 SignInView()
             }
         }
+        .navigationBarTitle("Hidden Title")
+                     .navigationBarHidden(self.isNavigationBarHidden)
+                     .onAppear {
+                         self.isNavigationBarHidden = true
+                     }
         .onAppear {
             viewModel.signedIn = viewModel.isSignedIn
         }
+        
     }
 }
 
@@ -86,16 +93,18 @@ struct SignInView: View {
     @State private var netID: String = ""
     @State private var password: String = ""
     @State var color = Color.black.opacity(0.7)
+    @State var isNavigationBarHidden: Bool = true
     
     
     var body: some View {
+        NavigationView {
             VStack {
                 Image("logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 250, height: 150, alignment: .center)
            
-                VStack {
+                VStack { //todo have textfields clear once user lands on page
                     TextField("netID", text: $netID)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
@@ -127,8 +136,13 @@ struct SignInView: View {
                 .padding()
                 
                 Spacer()
-               
+            }
         }
+        .navigationBarTitle("Hidden Title")
+                     .navigationBarHidden(self.isNavigationBarHidden)
+                     .onAppear {
+                         self.isNavigationBarHidden = true
+                     }
     }
 }
 
@@ -149,7 +163,7 @@ struct SignUpView: View {
                     .scaledToFit()
                     .frame(width: 250, height: 150, alignment: .center)
            
-                VStack {
+                VStack { //todo have textfields clear once user lands on page
                     TextField("First Name", text: $firstName)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
@@ -175,7 +189,7 @@ struct SignUpView: View {
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.password != "" ? Color("Color") : Color("Color"),lineWidth: 2))
                     
                     Button(action: {
-                        guard !netID.isEmpty, !password.isEmpty else {
+                        guard !firstName.isEmpty, !lastName.isEmpty, !netID.isEmpty, !password.isEmpty else {
                             return
                         }
                         
