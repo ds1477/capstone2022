@@ -3,7 +3,7 @@
 //
 
 import SwiftUI
-import Firebase
+import FirebaseCore
 
 @main
 struct digidApp: App {
@@ -12,7 +12,9 @@ struct digidApp: App {
     
     var body: some Scene {
         WindowGroup {
+            let viewModel = AppViewModel()
             ContentView()
+                .environmentObject(viewModel)
         }
     }
 }
