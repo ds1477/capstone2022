@@ -19,7 +19,7 @@ class AppViewModel: ObservableObject {
     }
     
     func signIn(netID: String, password: String) {
-        auth.signIn(withEmail: netID + "@scarletmail.rutgers.edu", password: password) { [weak self] result, error in
+        auth.signIn(withEmail: netID, password: password) { [weak self] result, error in
             guard result != nil, error == nil else {
                 return
             }
@@ -31,22 +31,30 @@ class AppViewModel: ObservableObject {
     }
     
     func signUp(firstName: String, lastName: String, netID: String, password: String) {
-        auth.createUser(withEmail: netID + "@scarletmail.rutgers.edu", password: password) { [weak self] result, error in
-            guard result != nil, error == nil else {
-                return
+        if netID.contains("@scarletmail.rutgers.edu") {
+            auth.createUser(withEmail: netID, password: password) { [weak self] result, error in
+                guard result != nil, error == nil else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    //Successful Login
+                    self?.signedIn = true
+                }
             }
-            DispatchQueue.main.async {
-                //Successful Login
-                self?.signedIn = true
-            }
+        }
+        else {
+            
         }
     }
     
     func signOut() {
-        try? auth.signOut()
-        self.signedIn = false
+        do {
+            try auth.signOut()
+            self.signedIn = false
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
     }
-    
 }
 
 struct ContentView: View {
@@ -105,7 +113,7 @@ struct SignInView: View {
                     .frame(width: 250, height: 150, alignment: .center)
            
                 VStack { //todo have textfields clear once user lands on page
-                    TextField("netID", text: $netID)
+                    TextField("netID@scarletmail.rutgers.edu", text: $netID)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .padding()
@@ -176,7 +184,7 @@ struct SignUpView: View {
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.lastName != "" ? Color("Color") : Color("Color"),lineWidth: 2))
                     
-                    TextField("netID", text: $netID)
+                    TextField("netID@scarletmail.rutges.edu", text: $netID)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .padding()
