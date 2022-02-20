@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LoginView.swift
 //  digid
 //
 //  Created by Daniel Samojlik on 1/20/22.

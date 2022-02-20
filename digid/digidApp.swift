@@ -22,7 +22,7 @@ struct digidApp: App {
     var body: some Scene {
         WindowGroup {
             if appState.hasOnboarded {
-                MainView()
+                LandingView()
                     .environmentObject(appState)
             }
             else {

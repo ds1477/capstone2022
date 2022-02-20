@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  LandingView.swift
 //  digid
 //
 //  Created by Daniel Samojlik on 2/20/22.
@@ -10,7 +10,7 @@ import FirebaseAuth
 
 
 
-struct MainView: View {
+struct LandingView: View {
     
     @EnvironmentObject var appState: AppState
     
@@ -25,7 +25,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        LandingView()
     }
 }
 
