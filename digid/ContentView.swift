@@ -23,7 +23,7 @@ class AppViewModel: ObservableObject {
             guard result != nil, error == nil else {
                 return
             }
-            DispatchQueue.main.async {
+            DispatchQueue.global().async {
                 //Successful Login
                 self?.signedIn = true
             }
@@ -33,17 +33,18 @@ class AppViewModel: ObservableObject {
     func signUp(firstName: String, lastName: String, netID: String, password: String) {
         if netID.contains("@scarletmail.rutgers.edu") {
             auth.createUser(withEmail: netID, password: password) { [weak self] result, error in
-                guard result != nil, error == nil else {
+                guard result?.user != nil, error == nil else {
+                    //error
                     return
                 }
-                DispatchQueue.main.async {
+                DispatchQueue.global().async {
                     //Successful Login
                     self?.signedIn = true
                 }
             }
         }
         else {
-            
+            //alert to enter correct email addess
         }
     }
     
