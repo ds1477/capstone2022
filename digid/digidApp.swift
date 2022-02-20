@@ -5,16 +5,31 @@
 import SwiftUI
 import FirebaseCore
 
+class AppState: ObservableObject {
+    @Published var hasOnboarded: Bool
+    
+    init(hasOnboarded: Bool) {
+        self.hasOnboarded = hasOnboarded
+    }
+}
+
 @main
 struct digidApp: App {
     
+    @ObservedObject var appState = AppState(hasOnboarded: false)
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
-            let viewModel = AppViewModel()
-            ContentView()
-                .environmentObject(viewModel)
+            if appState.hasOnboarded {
+                MainView()
+                    .environmentObject(appState)
+            }
+            else {
+                LoginView()
+                    .environmentObject(appState)
+            }
+            
         }
     }
 }

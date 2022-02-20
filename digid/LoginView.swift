@@ -7,97 +7,12 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseDatabase
 
-class AppViewModel: ObservableObject {
-    
-    let auth = Auth.auth()
-    
-    @Published var signedIn = false
-    
-    var isSignedIn: Bool {
-        return auth.currentUser != nil
-    }
-    
-    func signIn(netID: String, password: String) {
-        auth.signIn(withEmail: netID, password: password) { [weak self] result, error in
-            guard result != nil, error == nil else {
-                return
-            }
-            DispatchQueue.global().async {
-                //Successful Login
-                self?.signedIn = true
-            }
-        }
-    }
-    
-    func signUp(firstName: String, lastName: String, netID: String, password: String) {
-        if netID.contains("@scarletmail.rutgers.edu") {
-            auth.createUser(withEmail: netID, password: password) { [weak self] result, error in
-                guard result?.user != nil, error == nil else {
-                    //error
-                    return
-                }
-                DispatchQueue.global().async {
-                    //Successful Login
-                    self?.signedIn = true
-                }
-            }
-        }
-        else {
-            //alert to enter correct email addess
-        }
-    }
-    
-    func signOut() {
-        do {
-            try auth.signOut()
-            self.signedIn = false
-        } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
-        }
-    }
-}
 
-struct ContentView: View {
+struct LoginView: View {
     
-    @EnvironmentObject var viewModel: AppViewModel
-    @State var isNavigationBarHidden: Bool = true
-    
-    var body: some View {
-        NavigationView {
-            if viewModel.signedIn {
-                //Will be Main Page with functionalities
-                VStack {
-                    Text("You are signed in")
-                    
-                    Button(action: {
-                        viewModel.signOut()
-                    }, label: {
-                       NavigationLink("Logout", destination: SignInView())
-                            .cornerRadius(5)
-                            .padding()
-                    })
-                }
-            }
-            else {
-                SignInView()
-            }
-        }
-        .navigationBarTitle("Hidden Title")
-                     .navigationBarHidden(self.isNavigationBarHidden)
-                     .onAppear {
-                         self.isNavigationBarHidden = true
-                     }
-        .onAppear {
-            viewModel.signedIn = viewModel.isSignedIn
-        }
-        
-    }
-}
-
-struct SignInView: View {
-    
-    @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var appState: AppState
     @State var showForgotPassword = false
     
     @State private var netID: String = ""
@@ -134,9 +49,9 @@ struct SignInView: View {
                         }, label: {
                             Text("Forgot Password?")
                         })
-                            .font(.system(size: 16, weight: .bold))
+                            .font(.system(size: 14))
                             .sheet(isPresented: $showForgotPassword) {
-                                ForgotPasswordView()
+                                //ForgotPasswordView()
                             }
 
                     }
@@ -146,7 +61,8 @@ struct SignInView: View {
                             return
                         }
                         
-                        viewModel.signIn(netID: netID, password: password)
+                        signIn(netID: netID, password: password)
+                        appState.hasOnboarded = true
                     }, label: {
                         Text("Sign In")
                             .foregroundColor(Color.white)
@@ -172,10 +88,7 @@ struct SignInView: View {
 
 struct SignUpView: View {
     
-    @EnvironmentObject var viewModel: AppViewModel
-    
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
+    @EnvironmentObject var appState: AppState
     @State private var netID: String = ""
     @State private var password: String = ""
     @State var color = Color.black.opacity(0.7)
@@ -188,17 +101,6 @@ struct SignUpView: View {
                     .frame(width: 250, height: 150, alignment: .center)
            
                 VStack { //todo have textfields clear once user lands on page
-                    TextField("First Name", text: $firstName)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.firstName != "" ? Color("Color") : Color("Color"),lineWidth: 2))
-                    
-                    TextField("Last Name", text: $lastName)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.lastName != "" ? Color("Color") : Color("Color"),lineWidth: 2))
                     
                     TextField("netID@scarletmail.rutges.edu", text: $netID)
                         .autocapitalization(.none)
@@ -213,11 +115,12 @@ struct SignUpView: View {
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.password != "" ? Color("Color") : Color("Color"),lineWidth: 2))
                     
                     Button(action: {
-                        guard !firstName.isEmpty, !lastName.isEmpty, !netID.isEmpty, !password.isEmpty else {
+                        guard !netID.isEmpty, !password.isEmpty else {
                             return
                         }
                         
-                        viewModel.signUp(firstName: firstName, lastName: lastName, netID: netID, password: password)
+                       signUp(netID: netID, password: password)
+                        appState.hasOnboarded = true
                     }, label: {
                         Text("Create Account")
                             .foregroundColor(Color.white)
@@ -233,7 +136,7 @@ struct SignUpView: View {
     }
 }
 
-struct ForgotPasswordView: View {
+/*struct ForgotPasswordView: View {
     @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
@@ -241,12 +144,71 @@ struct ForgotPasswordView: View {
     }
     
     
-}
+}*/
 
-struct ContentView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+       LoginView()
     }
 }
 
+private func signIn(netID: String, password: String) {
+    
+    let auth = Auth.auth()
+    
+    let netID = netID.trimmingCharacters(in: .whitespacesAndNewlines)
+    let password = password.trimmingCharacters(in: .whitespacesAndNewlines)
+    
+    auth.signIn(withEmail: netID, password: password) { (result, error) in
+        
+        if let error = error {
+            print("Failed to sign in.", error.localizedDescription)
+            return
+        }
+    }
+}
 
+private func signUp (netID: String, password: String) {
+    
+    let auth = Auth.auth()
+    
+    let netID = netID.trimmingCharacters(in: .whitespacesAndNewlines)
+    let password = password.trimmingCharacters(in: .whitespacesAndNewlines)
+    
+    if netID.contains("@scarletmail.rutgers.edu") {
+        auth.createUser(withEmail: netID, password: password) { (result, error) in
+            
+            if let error = error {
+                print("Failed to create new user.", error.localizedDescription)
+                return
+            }
+            
+            guard let uid = result?.user.uid else {return}
+            
+            let values = ["netID": netID]
+            
+            Database.database().reference().child("users").child(uid).updateChildValues(values) { (error, ref) in
+                if let error = error {
+                    print("Failed to update database.", error.localizedDescription)
+                    return
+                }
+                
+                print("Successfully signed user up.")
+                
+            }
+        }
+        
+    }
+    else {
+        //alert to enter correct email addess
+    }
+}
+
+private func signOut() {
+    let auth = Auth.auth()
+    do {
+        try auth.signOut()
+    } catch let signOutError as NSError {
+      print("Error signing out: %@", signOutError)
+    }
+}
