@@ -98,6 +98,7 @@ struct ContentView: View {
 struct SignInView: View {
     
     @EnvironmentObject var viewModel: AppViewModel
+    @State var showForgotPassword = false
     
     @State private var netID: String = ""
     @State private var password: String = ""
@@ -129,11 +130,14 @@ struct SignInView: View {
                     HStack {
                         Spacer()
                         Button (action: {
-                            //TODO: Handle Forget password
+                            showForgotPassword.toggle()
                         }, label: {
                             Text("Forgot Password?")
                         })
                             .font(.system(size: 16, weight: .bold))
+                            .sheet(isPresented: $showForgotPassword) {
+                                ForgotPasswordView()
+                            }
 
                     }
                     
@@ -227,6 +231,16 @@ struct SignUpView: View {
                 Spacer()
         }
     }
+}
+
+struct ForgotPasswordView: View {
+    @EnvironmentObject var viewModel: AppViewModel
+    
+    var body: some View {
+        //TODO: Password Reset View with Email Link to send password reset
+    }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
