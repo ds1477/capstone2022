@@ -51,7 +51,7 @@ struct LoginView: View {
                         })
                             .font(.system(size: 14))
                             .sheet(isPresented: $showForgotPassword) {
-                                //ForgotPasswordView()
+                                ForgotPasswordView()
                             }
 
                     }
@@ -136,15 +136,39 @@ struct SignUpView: View {
     }
 }
 
-/*struct ForgotPasswordView: View {
-    @EnvironmentObject var viewModel: AppViewModel
+struct ForgotPasswordView: View {
+    @State private var netID: String = ""
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         //TODO: Password Reset View with Email Link to send password reset
+        VStack {
+           Text("Password Reset")
+                .font(.title)
+                .padding(.horizontal, 16)
+                .foregroundColor(Color("Color"))
+            
+            TextField("netID@scarletmail.rutgers.edu", text: $netID)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 4).stroke(self.netID != "" ? Color("Color") : Color("Color"),lineWidth: 2))
+            
+                Button("Send Password Reset") {
+                    passwordReset(netID: netID)
+                    presentationMode.wrappedValue.dismiss()
+                }
+                    .foregroundColor(Color.white)
+                    .frame(width:200, height: 50)
+                    .background(Color("Color"))
+                    .cornerRadius(4)
+        }
+            .padding(.horizontal, 16)
+            .navigationBarTitle("Reset Password")
+            .foregroundColor(Color("Color"))
     }
-    
-    
-}*/
+}
+
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
@@ -204,3 +228,14 @@ private func signUp (netID: String, password: String) {
     }
 }
 
+private func passwordReset(netID: String) {
+    let auth = Auth.auth()
+    
+    auth.sendPasswordReset(withEmail: netID) {(error) in
+        if let error = error {
+            print("Failed to send reset password link.", error.localizedDescription)
+            return
+        }
+        print("Successfully sent reset password link.")
+    }
+}
