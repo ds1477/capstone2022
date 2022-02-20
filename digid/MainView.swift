@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 
 
@@ -17,6 +18,7 @@ struct MainView: View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         Button("Logout") {
             appState.hasOnboarded = false
+            signOut()
         }
     }
 }
@@ -24,5 +26,14 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+    }
+}
+
+private func signOut() {
+    let auth = Auth.auth()
+    do {
+        try auth.signOut()
+    } catch let signOutError as NSError {
+      print("Error signing out: %@", signOutError)
     }
 }

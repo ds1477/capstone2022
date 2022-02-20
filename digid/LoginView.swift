@@ -204,11 +204,3 @@ private func signUp (netID: String, password: String) {
     }
 }
 
-private func signOut() {
-    let auth = Auth.auth()
-    do {
-        try auth.signOut()
-    } catch let signOutError as NSError {
-      print("Error signing out: %@", signOutError)
-    }
-}
