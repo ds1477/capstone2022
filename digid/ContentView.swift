@@ -126,6 +126,17 @@ struct SignInView: View {
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.password != "" ? Color("Color") : Color("Color"),lineWidth: 2))
                     
+                    HStack {
+                        Spacer()
+                        Button (action: {
+                            //TODO: Handle Forget password
+                        }, label: {
+                            Text("Forgot Password?")
+                        })
+                            .font(.system(size: 16, weight: .bold))
+
+                    }
+                    
                     Button(action: {
                         guard !netID.isEmpty, !password.isEmpty else {
                             return
