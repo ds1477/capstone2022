@@ -16,7 +16,6 @@
 		19D2866C27B70A360087945B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19D2866B27B70A360087945B /* GoogleService-Info.plist */; };
 		9AEF91C66C7D2CFE1EB12CDA /* Pods_digid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB805513191C6076A2343C67 /* Pods_digid.framework */; };
 		F746AA2127C3339D009B1B02 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F746AA2027C3339D009B1B02 /* QRView.swift */; };
-		F746AA2327C333E0009B1B02 /* QRContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F746AA2227C333E0009B1B02 /* QRContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +31,6 @@
 		4A6C40770332923D89C5774C /* Pods-digid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digid.debug.xcconfig"; path = "Target Support Files/Pods-digid/Pods-digid.debug.xcconfig"; sourceTree = "<group>"; };
 		EB805513191C6076A2343C67 /* Pods_digid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_digid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F746AA2027C3339D009B1B02 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
-		F746AA2227C333E0009B1B02 /* QRContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 				19B30CD42799E2B600E8AB57 /* LoginView.swift */,
 				19A4700827C2C445005702CC /* LandingView.swift */,
 				F746AA2027C3339D009B1B02 /* QRView.swift */,
-				F746AA2227C333E0009B1B02 /* QRContentView.swift */,
 				19B30CD62799E2B700E8AB57 /* Assets.xcassets */,
 				19B30CD82799E2B700E8AB57 /* Preview Content */,
 			);
@@ -226,7 +223,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				19B30CD52799E2B600E8AB57 /* LoginView.swift in Sources */,
-				F746AA2327C333E0009B1B02 /* QRContentView.swift in Sources */,
 				19A4700B27C32D0E005702CC /* Service.swift in Sources */,
 				19A4700927C2C445005702CC /* LandingView.swift in Sources */,
 				F746AA2127C3339D009B1B02 /* QRView.swift in Sources */,

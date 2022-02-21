@@ -9,6 +9,21 @@ import Foundation
 import SwiftUI
 import CoreImage.CIFilterBuiltins
 
+struct QRView: View {
+    var body: some View {
+        VStack {
+            Text("Hello!")
+            QRCodeGenerator(url: "www.RUscrewed.app")
+        }
+    }
+}
+
+struct QRView_Previews: PreviewProvider {
+    static var previews: some View {
+        QRView()
+    }
+}
+
 struct QRCodeGenerator : View {
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()

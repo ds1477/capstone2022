@@ -139,6 +139,7 @@ struct SignUpView: View {
 struct ForgotPasswordView: View {
     @State private var netID: String = ""
     @Environment(\.presentationMode) var presentationMode
+    @State private var alertIsPresented = false
     
     var body: some View {
         //TODO: Password Reset View with Email Link to send password reset
@@ -157,15 +158,16 @@ struct ForgotPasswordView: View {
                 Button("Send Password Reset") {
                     passwordReset(netID: netID)
                     presentationMode.wrappedValue.dismiss()
+                    self.alertIsPresented = true
                 }
                     .foregroundColor(Color.white)
                     .frame(width:200, height: 50)
                     .background(Color("Color"))
                     .cornerRadius(4)
+                    .alert(isPresented: $alertIsPresented, content: {
+                        Alert(title: Text("Reset Password Verification"), message: Text("A link has been sent to your email to reset your password."), dismissButton: .default(Text("Got it!")))
+                    })
         }
-            .padding(.horizontal, 16)
-            .navigationBarTitle("Reset Password")
-            .foregroundColor(Color("Color"))
     }
 }
 
