@@ -8,8 +8,6 @@
 import SwiftUI
 import FirebaseAuth
 
-
-
 struct LandingView: View {
     
     @EnvironmentObject var appState: AppState
