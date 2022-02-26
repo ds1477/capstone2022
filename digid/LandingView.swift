@@ -14,13 +14,24 @@ struct LandingView: View {
     
     var body: some View {
         VStack {
-            Image("logo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 250, height: 150, alignment: .center)
-            Button("Logout") {
-                appState.hasOnboarded = false
-                signOut()
+            NavigationView {
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 250, height: 150, alignment: .center)
+                Button("Logout") {
+                    appState.hasOnboarded = false
+                    signOut()
+                }
+                Button("Generate a QR Code") {
+                    appState.hasOnboarded = false
+                    qrGenerator()
+                }
+            }
+            .navigationBarTitle("Hidden Title")
+            .navigationBarHidden(self.isNavigationBarHidden)
+            .onAppear {
+                self.isNavigationBarHidden = true
             }
         }
     }
@@ -38,5 +49,14 @@ private func signOut() {
         try auth.signOut()
     } catch let signOutError as NSError {
       print("Error signing out: %@", signOutError)
+    }
+}
+
+private func qrGenerator() {
+    let auth = Auth.auth()
+    do {
+        try auth.qrGenerator()
+    } catch let qrGeneratorError as NSError {
+        print("Error generating a QR COde: %@", qrGeneratorError)
     }
 }

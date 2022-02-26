@@ -47,3 +47,4 @@ struct QRCodeGenerator : View {
         return UIImage(systemName: "xmark") ?? UIImage()
     }
 }
+
