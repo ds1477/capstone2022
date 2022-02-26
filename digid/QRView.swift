@@ -15,7 +15,7 @@ struct QRView: View {
             Image("logo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 150, height: 90, alignment: .center)
+                .frame(width: 200, height: 120, alignment: .center)
             Spacer()
             Text("QR Code")
             QRCodeGenerator(url: "www.naver.com")
