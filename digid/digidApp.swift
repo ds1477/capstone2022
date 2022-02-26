@@ -13,8 +13,6 @@ class AppState: ObservableObject {
     }
 }
 
-
-
 @main
 struct digidApp: App {
     
