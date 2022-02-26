@@ -12,6 +12,11 @@ import CoreImage.CIFilterBuiltins
 struct QRView: View {
     var body: some View {
         VStack {
+            Image("logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150, height: 90, alignment: .center)
+            Spacer()
             Text("QR Code")
             QRCodeGenerator(url: "www.RUscrewed.app")
         }
