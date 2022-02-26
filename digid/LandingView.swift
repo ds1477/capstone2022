@@ -11,7 +11,6 @@ import FirebaseAuth
 struct LandingView: View {
     
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var qrState: QRState
     
     @State var isNavigationBarHidden: Bool = true
     
