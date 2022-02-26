@@ -12,9 +12,11 @@ struct LandingView: View {
     
     @EnvironmentObject var appState: AppState
     
+    @State var isNavigationBarHidden: Bool = true
+    
     var body: some View {
-        VStack {
-            NavigationView {
+        NavigationView {
+            VStack {
                 Image("logo")
                     .resizable()
                     .scaledToFit()
