@@ -13,8 +13,8 @@
 		19B30CD52799E2B600E8AB57 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B30CD42799E2B600E8AB57 /* LoginView.swift */; };
 		19B30CD72799E2B700E8AB57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B30CD62799E2B700E8AB57 /* Assets.xcassets */; };
 		19B30CDA2799E2B700E8AB57 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B30CD92799E2B700E8AB57 /* Preview Assets.xcassets */; };
-		19D2866C27B70A360087945B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19D2866B27B70A360087945B /* GoogleService-Info.plist */; };
 		9AEF91C66C7D2CFE1EB12CDA /* Pods_digid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB805513191C6076A2343C67 /* Pods_digid.framework */; };
+		F73CCE9427C9B59400E845F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F73CCE9327C9B59400E845F1 /* GoogleService-Info.plist */; };
 		F746AA2127C3339D009B1B02 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F746AA2027C3339D009B1B02 /* QRView.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,9 +27,9 @@
 		19B30CD42799E2B600E8AB57 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		19B30CD62799E2B700E8AB57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19B30CD92799E2B700E8AB57 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		19D2866B27B70A360087945B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A6C40770332923D89C5774C /* Pods-digid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digid.debug.xcconfig"; path = "Target Support Files/Pods-digid/Pods-digid.debug.xcconfig"; sourceTree = "<group>"; };
 		EB805513191C6076A2343C67 /* Pods_digid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_digid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F73CCE9327C9B59400E845F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F746AA2027C3339D009B1B02 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +66,7 @@
 		19B30CD12799E2B600E8AB57 /* digid */ = {
 			isa = PBXGroup;
 			children = (
-				19D2866B27B70A360087945B /* GoogleService-Info.plist */,
+				F73CCE9327C9B59400E845F1 /* GoogleService-Info.plist */,
 				19B30CD22799E2B600E8AB57 /* digidApp.swift */,
 				19A4700A27C32D0E005702CC /* Service.swift */,
 				19B30CD42799E2B600E8AB57 /* LoginView.swift */,
@@ -167,9 +167,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F73CCE9427C9B59400E845F1 /* GoogleService-Info.plist in Resources */,
 				19B30CDA2799E2B700E8AB57 /* Preview Assets.xcassets in Resources */,
 				19B30CD72799E2B700E8AB57 /* Assets.xcassets in Resources */,
-				19D2866C27B70A360087945B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
