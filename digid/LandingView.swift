@@ -22,9 +22,20 @@ struct LandingView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 250, height: 150, alignment: .center)
-                Button("Generate a QR Code") {
-                    qrState.hasOnboarded2 = false
-                }
+                Button(action: {
+                    guard !netID.isEmpty, !password.isEmpty else {
+                        return
+                    }
+                    
+                    signIn(netID: netID, password: password)
+                    appState.hasOnboarded = true
+                }, label: {
+                    Text("Sign In")
+                        .foregroundColor(Color.white)
+                        .frame(width:200, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                })
                 Button("Logout") {
                     appState.hasOnboarded = false
                     signOut()
