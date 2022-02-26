@@ -22,14 +22,9 @@ struct LandingView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 250, height: 150, alignment: .center)
-                Button(action: {
-                    appState.hasOnboarded = true
-                }, label: {
-                    Text("Generate a QR Code")
-                        .foregroundColor(Color.white)
-                        .frame(width:200, height: 50)
-                        .background(Color("Color"))
-                        .cornerRadius(4)
+                
+                NavigationLink(destination: QRView(), label: {
+                        Text("Generate a QR Code")
                 })
                 Button("Logout") {
                     appState.hasOnboarded = false
