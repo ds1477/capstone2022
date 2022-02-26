@@ -18,7 +18,7 @@ struct QRView: View {
                 .frame(width: 150, height: 90, alignment: .center)
             Spacer()
             Text("QR Code")
-            QRCodeGenerator(url: "www.RUscrewed.app")
+            QRCodeGenerator(url: "www.naver.com")
             Spacer()
         }
     }
