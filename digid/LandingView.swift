@@ -23,9 +23,7 @@ struct LandingView: View {
                     .scaledToFit()
                     .frame(width: 250, height: 150, alignment: .center)
                 Button(action: {
-                    guard !netID.isEmpty, !password.isEmpty else {
-                        return
-                    }
+                    
                     
                     signIn(netID: netID, password: password)
                     appState.hasOnboarded = true
