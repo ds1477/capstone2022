@@ -23,7 +23,7 @@ struct LandingView: View {
                     .scaledToFit()
                     .frame(width: 250, height: 150, alignment: .center)
                 Button("Generate a QR Code") {
-                    qrState.hasOnboarded2 = true
+                    qrState.hasOnboarded2 = false
                 }
                 Button("Logout") {
                     appState.hasOnboarded = false
