@@ -24,7 +24,7 @@ struct LandingView: View {
                     .frame(width: 250, height: 150, alignment: .center)
                 Button("Generate a QR Code") {
                     qrState.hasOnboarded2 = false
-                    qrGenerator()
+                    
                 }
                 Button("Logout") {
                     appState.hasOnboarded = false
@@ -57,6 +57,3 @@ private func signOut() {
     }
 }
 
-private func qrGenerator() {
-    
-}
