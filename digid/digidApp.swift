@@ -13,10 +13,19 @@ class AppState: ObservableObject {
     }
 }
 
+class QRState: ObservableObject {
+    @Published var hasOnboarded2: Bool
+    
+    init(hasOnboarded2: Bool) {
+        self.hasOnboarded2 = hasOnboarded2
+    }
+}
+
 @main
 struct digidApp: App {
     
     @ObservedObject var appState = AppState(hasOnboarded: false)
+    @ObservedObject var qrState = QRState(hasOnboarded2: false)
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
@@ -25,11 +34,14 @@ struct digidApp: App {
                 LandingView()
                     .environmentObject(appState)
             }
+            else if qrState.hasOnboarded2 {
+                QRView()
+                    .environmentObject(qrState)
+            }
             else {
                 LoginView()
                     .environmentObject(appState)
             }
-            
         }
     }
 }
