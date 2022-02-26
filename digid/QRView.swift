@@ -18,6 +18,7 @@ struct QRView: View {
                 .frame(width: 200, height: 120, alignment: .center)
             Spacer()
             Text("QR Code")
+                .frame(width: 200, height: 120, alignment: .center)
             QRCodeGenerator(url: "www.naver.com")
             Spacer()
         }
