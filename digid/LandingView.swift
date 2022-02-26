@@ -11,6 +11,7 @@ import FirebaseAuth
 struct LandingView: View {
     
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var qrState: QRState
     
     @State var isNavigationBarHidden: Bool = true
     
@@ -22,7 +23,7 @@ struct LandingView: View {
                     .scaledToFit()
                     .frame(width: 250, height: 150, alignment: .center)
                 Button("Generate a QR Code") {
-                    appState.hasOnboarded = false
+                    qrState.hasOnboarded2 = false
                     qrGenerator()
                 }
                 Button("Logout") {
