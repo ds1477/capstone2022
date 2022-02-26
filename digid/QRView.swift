@@ -19,7 +19,10 @@ struct QRView: View {
             Spacer()
             Text("QR Code")
             QRCodeGenerator(url: "www.RUscrewed.app")
-            Spacer()
+            VStack {
+                Spacer()
+                Spacer()
+            }
         }
     }
 }
