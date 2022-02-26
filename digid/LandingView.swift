@@ -25,7 +25,6 @@ struct LandingView: View {
                 Button(action: {
                     
                     
-                    signIn(netID: netID, password: password)
                     appState.hasOnboarded = true
                 }, label: {
                     Text("Sign In")
