@@ -34,10 +34,6 @@ struct digidApp: App {
                 LandingView()
                     .environmentObject(appState)
             }
-            if qrState.hasOnboarded2 {
-                QRView()
-                    .environmentObject(qrState)
-            }
             else {
                 LoginView()
                     .environmentObject(appState)
