@@ -32,6 +32,10 @@ struct LandingView: View {
                     appState.hasOnboarded = false
                     signOut()
                 }
+                .foregroundColor(Color.white)
+                .frame(width:200, height: 50)
+                .background(Color("Color"))
+                .cornerRadius(4)
                 
             }
             
