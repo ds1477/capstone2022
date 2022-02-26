@@ -25,7 +25,6 @@ struct digidApp: App {
             if appState.hasOnboarded {
                 LandingView()
                     .environmentObject(appState)
-                
             }
             else {
                 LoginView()
