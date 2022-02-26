@@ -17,7 +17,7 @@ struct QRView: View {
                 .scaledToFit()
                 .frame(width: 200, height: 120, alignment: .center)
             Text("QR Code")
-                .frame(width: 200, height: 120, alignment: .center)
+                .foregroundColor(Color.black)
             QRCodeGenerator(url: "www.naver.com")
             Spacer()
         }
