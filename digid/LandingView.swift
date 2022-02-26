@@ -23,11 +23,9 @@ struct LandingView: View {
                     .scaledToFit()
                     .frame(width: 250, height: 150, alignment: .center)
                 Button(action: {
-                    
-                    
                     appState.hasOnboarded = true
                 }, label: {
-                    Text("Sign In")
+                    Text("Generate a QR Code")
                         .foregroundColor(Color.white)
                         .frame(width:200, height: 50)
                         .background(Color("Color"))
