@@ -21,14 +21,15 @@ struct LandingView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 250, height: 150, alignment: .center)
-                Button("Logout") {
-                    appState.hasOnboarded = false
-                    signOut()
-                }
                 Button("Generate a QR Code") {
                     appState.hasOnboarded = false
                     qrGenerator()
                 }
+                Button("Logout") {
+                    appState.hasOnboarded = false
+                    signOut()
+                }
+                
             }
             
         }
