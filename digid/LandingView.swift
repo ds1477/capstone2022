@@ -58,7 +58,7 @@ private func signOut() {
 private func qrGenerator() {
     let auth = Auth.auth()
     do {
-        try auth.qrGenerator()
+        # try auth.qrGenerator()
     } catch let qrGeneratorError as NSError {
         print("Error generating a QR COde: %@", qrGeneratorError)
     }
