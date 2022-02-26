@@ -38,7 +38,7 @@ struct QRCodeGenerator : View {
         Image(uiImage: generateQRCodeImage(url: "www.naver.com"))
             .interpolation(.none)
             .resizable()
-            .frame(width: 200, height: 200, alignment: .center)
+            .frame(width: 250, height: 250, alignment: .center)
     }
 
     func generateQRCodeImage( url : String) -> UIImage {
