@@ -29,7 +29,13 @@ struct LandingView: View {
                         .background(Color("Color"))
                         .cornerRadius(4)
                 })
-                
+                NavigationLink(destination: LocationView(), label: {
+                        Text("Capacitance by Location")
+                        .foregroundColor(Color.white)
+                        .frame(width:200, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                })
                 Button("Logout") {
                     appState.hasOnboarded = false
                     signOut()
