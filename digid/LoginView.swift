@@ -154,6 +154,8 @@ struct ForgotPasswordView: View {
                 .disableAutocorrection(true)
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 4).stroke(self.netID != "" ? Color("Color") : Color("Color"),lineWidth: 2))
+                .frame(width: 350)
+            
             
                 Button("Send Password Reset") {
                     passwordReset(netID: netID)
