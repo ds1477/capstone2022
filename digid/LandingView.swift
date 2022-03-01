@@ -29,6 +29,7 @@ struct LandingView: View {
                         .background(Color("Color"))
                         .cornerRadius(4)
                 })
+                
                 Button("Logout") {
                     appState.hasOnboarded = false
                     signOut()
