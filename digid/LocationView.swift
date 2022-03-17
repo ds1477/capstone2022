@@ -54,10 +54,10 @@ struct DiningHallView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Werblin Fitness Center")
-                Text("Livingston Fitness Center ")
-                Text("College Avenue Fitness Center")
-                Text("Cook-Douglass Fitness Center")
+                Text("Busch Dining Hall")
+                Text("Livingston Dining Hall")
+                Text("Brower Commons")
+                Text("Neilson Dining Hall")
             }
         }
     }
@@ -77,6 +77,10 @@ struct GymView: View {
                 Text("Livingston Dining Hall")
                 Text("Brower Commons")
                 Text("Neilson Dining Hall")
+                Text("Werblin Fitness Center")
+                Text("Livingston Fitness Center ")
+                Text("College Avenue Fitness Center")
+                Text("Cook-Douglass Fitness Center")
             }
         }
     }
