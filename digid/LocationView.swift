@@ -38,13 +38,21 @@ struct LocationView: View {
 
 struct DiningHallView: View {
     var body: some View {
-        Text("Hello, world")
+        NavigationView {
+            VStack {
+                Text("Hello, world")
+            }
+        }
     }
 }
 
 struct GymView: View {
     var body: some View {
-        Text("Hello, world")
+        NavigationView {
+            VStack {
+                Text("Hello, world")
+            }
+        }
     }
 }
 
