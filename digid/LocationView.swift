@@ -73,7 +73,10 @@ struct GymView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Hello, world")
+                Text("Busch Dining Hall")
+                Text("Livingston Dining Hall")
+                Text("Brower Commons")
+                Text("Neilson Dining Hall")
             }
         }
     }
