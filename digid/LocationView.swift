@@ -61,6 +61,12 @@ struct DiningHallView: View {
 }
 
 struct GymView: View {
+    
+    @State var werblinFitnessMax: Int = 50
+    @State var liviFitnessMax: Int = 30
+    @State var collegeAveFitnessMax: Int = 40
+    @State var cookDougFitnessMax: Int = 30
+    
     var body: some View {
         NavigationView {
             VStack {
