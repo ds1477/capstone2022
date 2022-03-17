@@ -46,6 +46,8 @@ struct LocationView: View {
 
 struct DiningHallView: View {
     
+    @State var isNavigationBarHidden: Bool = true
+    
     @State var buschMax: Int = 250
     @State var liviMax: Int = 250
     @State var browerMax: Int = 200
@@ -60,10 +62,17 @@ struct DiningHallView: View {
                 Text("Neilson Dining Hall")
             }
         }
+        .navigationBarTitle("Hidden Title")
+        .navigationBarHidden(self.isNavigationBarHidden)
+        .onAppear {
+            self.isNavigationBarHidden = true
+        }
     }
 }
 
 struct GymView: View {
+    
+    @State var isNavigationBarHidden: Bool = true
     
     @State var werblinFitnessMax: Int = 50
     @State var liviFitnessMax: Int = 30
@@ -78,6 +87,11 @@ struct GymView: View {
                 Text("College Avenue Fitness Center")
                 Text("Cook-Douglass Fitness Center")
             }
+        }
+        .navigationBarTitle("Hidden Title")
+        .navigationBarHidden(self.isNavigationBarHidden)
+        .onAppear {
+            self.isNavigationBarHidden = true
         }
     }
 }
