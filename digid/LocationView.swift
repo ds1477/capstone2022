@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LocationView: View {
     
-    @State var isNavigationBarHidden: Bool = true
+    
     
     var body: some View {
         NavigationView {
@@ -36,11 +36,7 @@ struct LocationView: View {
                 Spacer()
             }
         }
-        .navigationBarTitle("Hidden Title")
-        .navigationBarHidden(self.isNavigationBarHidden)
-        .onAppear {
-            self.isNavigationBarHidden = true
-        }
+        
     }
 }
 
