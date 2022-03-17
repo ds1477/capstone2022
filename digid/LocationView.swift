@@ -46,10 +46,10 @@ struct LocationView: View {
 
 struct DiningHallView: View {
     
-    @State var buschMax: Int = 200
+    @State var buschMax: Int = 250
     @State var liviMax: Int = 250
     @State var browerMax: Int = 200
-    @State var neilsonMax: Int = 250
+    @State var neilsonMax: Int = 300
     
     var body: some View {
         NavigationView {
