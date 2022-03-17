@@ -11,6 +11,11 @@ struct LocationView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 250, height: 150, alignment: .center)
+                Spacer()
                 NavigationLink(destination: DiningHallView(), label: {
                     Text("Dining Hall Capacitance")
                     .foregroundColor(Color.white)
@@ -25,6 +30,7 @@ struct LocationView: View {
                     .background(Color("Color"))
                     .cornerRadius(4)
                 })
+                Spacer()
             }
         }
     }
