@@ -35,11 +35,12 @@ struct LocationView: View {
                 })
                 Spacer()
             }
-            .navigationBarTitle("Hidden Title")
-            .navigationBarHidden(self.isNavigationBarHidden)
-            .onAppear {
-                self.isNavigationBarHidden = true
-            }
+            
+        }
+        .navigationBarTitle("Hidden Title")
+        .navigationBarHidden(self.isNavigationBarHidden)
+        .onAppear {
+            self.isNavigationBarHidden = true
         }
     }
 }
