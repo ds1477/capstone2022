@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LocationView: View {
+    
+    @State var isNavigationBarHidden: Bool = true
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -31,6 +34,11 @@ struct LocationView: View {
                     .cornerRadius(4)
                 })
                 Spacer()
+            }
+            .navigationBarTitle("Hidden Title")
+            .navigationBarHidden(self.isNavigationBarHidden)
+            .onAppear {
+                self.isNavigationBarHidden = true
             }
         }
     }
