@@ -10,7 +10,9 @@ import SwiftUI
 struct LocationView: View {
     var body: some View {
         NavigationView {
-            
+            VStack {
+                
+            }
         }
     }
 }
