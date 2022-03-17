@@ -18,6 +18,13 @@ struct LocationView: View {
                     .background(Color("Color"))
                     .cornerRadius(4)
                 })
+                NavigationLink(destination: GymView(), label: {
+                    Text("Gym Capacitance")
+                    .foregroundColor(Color.white)
+                    .frame(width:200, height: 50)
+                    .background(Color("Color"))
+                    .cornerRadius(4)
+                })
             }
         }
     }
