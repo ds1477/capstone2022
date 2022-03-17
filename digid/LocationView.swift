@@ -48,8 +48,7 @@ struct DiningHallView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
-                
+                Text("Hello")
             }
         }
     }
