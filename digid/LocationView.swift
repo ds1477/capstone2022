@@ -64,7 +64,7 @@ struct DiningHallView: View {
 
 struct GymView: View {
     
-    @State var isNavigationBarHidden: Bool = true
+    
     
     @State var werblinFitnessMax: Int = 50
     @State var liviFitnessMax: Int = 30
@@ -80,11 +80,7 @@ struct GymView: View {
                 Text("Cook-Douglass Fitness Center")
             }
         }
-        .navigationBarTitle("Hidden Title")
-        .navigationBarHidden(self.isNavigationBarHidden)
-        .onAppear {
-            self.isNavigationBarHidden = true
-        }
+        
     }
 }
 
