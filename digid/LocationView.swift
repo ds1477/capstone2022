@@ -9,7 +9,9 @@ import SwiftUI
 
 struct LocationView: View {
     var body: some View {
-        Text("Recommended Maximum Capacity")
+        NavigationView {
+            
+        }
     }
 }
 
