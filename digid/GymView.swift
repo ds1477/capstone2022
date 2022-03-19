@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GymView: View {
+    
     @State var werblinFitnessMax: Int = 50
     @State var liviFitnessMax: Int = 30
     @State var collegeAveFitnessMax: Int = 40
