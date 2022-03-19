@@ -44,7 +44,6 @@ struct LandingView: View {
                 .cornerRadius(4)
                 Spacer()
             }
-            
         }
     }
 }
