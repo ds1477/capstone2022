@@ -25,21 +25,25 @@ struct DiningHallView: View {
                 .fontWeight(.black)
                 VStack {
                     Text("Recommended Maximum Capacity: \(buschMax)")
+                    Text("Current Capacity: \(buschCurrent)")
                 }
                 Text("Livingston Dining Hall")
                 .fontWeight(.black)
                 VStack {
                     Text("Recommended Maximum Capacity: \(liviMax)")
+                    Text("Current Capacity: \(liviCurrent)")
                 }
                 Text("Brower Commons")
                 .fontWeight(.black)
                 VStack {
                     Text("Recommended Maximum Capacity: \(browerMax)")
+                    Text("Current Capacity: \(browerCurrent)")
                 }
                 Text("Neilson Dining Hall")
                 .fontWeight(.black)
                 VStack {
                     Text("Recommended Maximum Capacity: \(neilsonMax)")
+                    Text("Current Capacity: \(neilsonCurrent)")
                 }
             }
         }
