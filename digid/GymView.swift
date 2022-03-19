@@ -12,7 +12,7 @@ struct GymView: View {
     @State var werblinFitnessMax: Int = 50
     @State var werblinFitnessCurrent: Int = 50
     @State var liviFitnessMax: Int = 30
-    @State var liviFitnessCurrent: Int = 30
+    @State var liviFitnessCurrent: Int = 28
     @State var collegeAveFitnessMax: Int = 40
     @State var collegeAveFitnessCurrent: Int = 40
     @State var cookDougFitnessMax: Int = 40
