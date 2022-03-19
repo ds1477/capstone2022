@@ -34,7 +34,6 @@ struct LandingView: View {
                         .background(Color("Color"))
                         .cornerRadius(4)
                 })
-                .navigationBarTitle("Capacitance by Location")
                 Button("Logout") {
                     appState.hasOnboarded = false
                     signOut()

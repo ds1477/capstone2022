@@ -23,7 +23,6 @@ struct LocationView: View {
                     .background(Color("Color"))
                     .cornerRadius(4)
                 })
-                .navigationBarTitle("Dining Hall Capacity")
                 NavigationLink(destination: GymView(), label: {
                     Text("Gym Capacitance")
                     .foregroundColor(Color.white)
@@ -31,7 +30,6 @@ struct LocationView: View {
                     .background(Color("Color"))
                     .cornerRadius(4)
                 })
-                .navigationBarTitle("Gym Capacity")
                 Spacer()
             }
         }
