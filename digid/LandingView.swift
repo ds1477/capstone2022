@@ -12,7 +12,7 @@ struct LandingView: View {
     
     @EnvironmentObject var appState: AppState
     
-    @State var isNavigationBarHidden: Bool = true
+    //@State var isNavigationBarHidden: Bool = true
     
     var body: some View {
         NavigationView {
@@ -48,11 +48,11 @@ struct LandingView: View {
             }
             
         }
-        .navigationBarTitle("Hidden Title")
-        .navigationBarHidden(self.isNavigationBarHidden)
-        .onAppear {
-            self.isNavigationBarHidden = true
-        }
+        //.navigationBarTitle("Hidden Title")
+        //.navigationBarHidden(self.isNavigationBarHidden)
+        //.onAppear {
+        //    self.isNavigationBarHidden = true
+        //}
     }
 }
 
