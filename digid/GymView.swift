@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GymView: View {
     
-    @State var isNavigationBarHidden: Bool = true
+    @State var isNavigationBarHidden: Bool = false
     
     @State var werblinFitnessMax: Int = 50
     @State var liviFitnessMax: Int = 30
