@@ -38,32 +38,6 @@ struct LocationView: View {
 
 
 
-struct GymView: View {
-    
-    @State var isNavigationBarHidden: Bool = true
-    
-    @State var werblinFitnessMax: Int = 50
-    @State var liviFitnessMax: Int = 30
-    @State var collegeAveFitnessMax: Int = 40
-    @State var cookDougFitnessMax: Int = 30
-    
-    var body: some View {
-        NavigationView {
-            VStack {
-                Text("Werblin Fitness Center")
-                Text("Livingston Fitness Center ")
-                Text("College Avenue Fitness Center")
-                Text("Cook-Douglass Fitness Center")
-            }
-        }
-        .navigationBarTitle("Hidden Title")
-        .navigationBarHidden(self.isNavigationBarHidden)
-        .onAppear {
-            self.isNavigationBarHidden = true
-        }
-    }
-}
-
 struct LocationView_Previews: PreviewProvider {
     static var previews: some View {
         LocationView()
