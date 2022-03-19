@@ -10,13 +10,13 @@ import SwiftUI
 struct DiningHallView: View {
     
     @State var buschMax: Int = 250
-    @State var buschCurrent: Int = 0
+    @State var buschCurrent: Int = 130
     @State var liviMax: Int = 250
-    @State var liviCurrent: Int = 0
+    @State var liviCurrent: Int = 261
     @State var browerMax: Int = 200
-    @State var browerCurrent: Int = 0
+    @State var browerCurrent: Int = 160
     @State var neilsonMax: Int = 300
-    @State var neilsonCurrent: Int = 0
+    @State var neilsonCurrent: Int = 270
     
     var body: some View {
         NavigationView {
