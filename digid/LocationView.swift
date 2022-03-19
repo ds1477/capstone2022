@@ -23,6 +23,7 @@ struct LocationView: View {
                     .background(Color("Color"))
                     .cornerRadius(4)
                 })
+                .navigationTitle("Capacitance by Location")
                 NavigationLink(destination: GymView(), label: {
                     Text("Gym Capacitance")
                     .foregroundColor(Color.white)
