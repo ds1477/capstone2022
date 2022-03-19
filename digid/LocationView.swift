@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct LocationView: View {
-    
-    @EnvironmentObject var appState: AppState
-    
     var body: some View {
         NavigationView {
             VStack {
