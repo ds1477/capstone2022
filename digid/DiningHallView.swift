@@ -9,8 +9,6 @@ import SwiftUI
 
 struct DiningHallView: View {
     
-    @State var isNavigationBarHidden: Bool = true
-    
     @State var buschMax: Int = 250
     @State var liviMax: Int = 250
     @State var browerMax: Int = 200
@@ -24,11 +22,6 @@ struct DiningHallView: View {
                 Text("Brower Commons")
                 Text("Neilson Dining Hall")
             }
-        }
-        .navigationBarTitle("Hidden Title")
-        .navigationBarHidden(self.isNavigationBarHidden)
-        .onAppear {
-            self.isNavigationBarHidden = true
         }
     }
 }
