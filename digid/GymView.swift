@@ -22,9 +22,17 @@ struct GymView: View {
         NavigationView {
             VStack {
                 Text("Werblin Fitness Center")
+                .fontWeight(.black)
+                VStack {
+                    Text("Maximum Capacity: \(werblinFitnessMax)")
+                    Text("Current Capacity: \(werblinFitnessCurrent)")
+                }
                 Text("Livingston Fitness Center ")
+                .fontWeight(.black)
                 Text("College Avenue Fitness Center")
+                .fontWeight(.black)
                 Text("Cook-Douglass Fitness Center")
+                .fontWeight(.black)
             }
         }
     }
