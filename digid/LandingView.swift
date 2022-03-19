@@ -11,7 +11,6 @@ import FirebaseAuth
 struct LandingView: View {
     
     @EnvironmentObject var appState: AppState
-
     
     var body: some View {
         NavigationView {
