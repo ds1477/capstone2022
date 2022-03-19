@@ -210,7 +210,7 @@ private func signUp (netID: String, password: String) {
                 print("Failed to create new user.", error.localizedDescription)
                 return
             }
-            let random = Int.random(in: 0...567848)
+            let random = Int.random(in: 0...567848) + Int.random(in: 0...567848)
             let vcode = String(random)
             
             guard let uid = result?.user.uid else {return}
