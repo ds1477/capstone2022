@@ -15,7 +15,7 @@ struct DiningHallView: View {
     @State var neilsonMax: Int = 300
     
     var body: some View {
-        //NavigationView {
+        NavigationView {
             VStack {
                 Text("Busch Dining Hall")
                 .fontWeight(.black)
@@ -38,7 +38,7 @@ struct DiningHallView: View {
                     Text("Recommended Maximum Capacity: \(neilsonMax)")
                 }
             }
-        //}
+        }
     }
 }
 
