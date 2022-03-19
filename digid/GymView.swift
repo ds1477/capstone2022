@@ -29,10 +29,22 @@ struct GymView: View {
                 }
                 Text("Livingston Fitness Center ")
                 .fontWeight(.black)
+                VStack {
+                    Text("Maximum Capacity: \(liviFitnessMax)")
+                    Text("Current Capacity: \(liviFitnessCurrent)")
+                }
                 Text("College Avenue Fitness Center")
                 .fontWeight(.black)
+                VStack {
+                    Text("Maximum Capacity: \(collegeAveFitnessMax)")
+                    Text("Current Capacity: \(collegeAveFitnessCurrent)")
+                }
                 Text("Cook-Douglass Fitness Center")
                 .fontWeight(.black)
+                VStack {
+                    Text("Maximum Capacity: \(cookDougFitnessMax)")
+                    Text("Current Capacity: \(cookDougFitnessCurrent)")
+                }
             }
         }
     }
