@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import FirebaseAuth
 import CoreImage.CIFilterBuiltins
 
 struct QRView: View {
@@ -18,7 +19,7 @@ struct QRView: View {
                 .frame(width: 200, height: 120, alignment: .center)
             Text("QR Code")
                 .foregroundColor(Color.black)
-            QRCodeGenerator(url: "www.naver.com")
+            QRCodeGenerator()
             Spacer()
         }
     }
@@ -33,16 +34,16 @@ struct QRView_Previews: PreviewProvider {
 struct QRCodeGenerator : View {
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
-    var url : String
+    let userInfo = getUserInfo()
     var body: some View {
-        Image(uiImage: generateQRCodeImage(url: "www.naver.com"))
+        Image(uiImage: generateQRCodeImage(String: userInfo))
             .interpolation(.none)
             .resizable()
             .frame(width: 250, height: 250, alignment: .center)
     }
 
-    func generateQRCodeImage( url : String) -> UIImage {
-        let data = Data(url.utf8)
+    func generateQRCodeImage(String : String) -> UIImage {
+        let data = Data(String.utf8)
         filter.setValue(data, forKey: "inputMessage")
 
         if let qrCodeImage = filter.outputImage {
@@ -54,3 +55,14 @@ struct QRCodeGenerator : View {
     }
 }
 
+private func getUserInfo() -> String {
+    guard let user = Auth.auth().currentUser else {
+        print("User not found")
+        return "No user exists"
+    }
+    guard let userEmail: String = user.email else {
+        print("User not found")
+        return "No email exists"
+    }
+    return userEmail
+}
