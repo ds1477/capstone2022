@@ -64,5 +64,8 @@ private func getUserInfo() -> String {
         print("User not found")
         return "No email exists"
     }
+    
+    //let vcode: String = user.
+    //return userEmail + "_" + vcode
     return userEmail
 }
