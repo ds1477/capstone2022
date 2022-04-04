@@ -21,6 +21,7 @@ struct DiningHallView: View {
     @State var liviAvg: Int = 104
     @State var browerAvg: Int = 80
     @State var neilsonAvg: Int = 90
+    @State var isNavigationBarHidden: Bool = true
     
     var body: some View {
         NavigationView {
@@ -54,6 +55,11 @@ struct DiningHallView: View {
                     Text("\(neilsonAvg)% filled")
                 }
             }
+        }
+        .navigationBarTitle("Hidden Title")
+        .navigationBarHidden(self.isNavigationBarHidden)
+        .onAppear {
+            self.isNavigationBarHidden = true
         }
     }
 }
