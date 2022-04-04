@@ -22,7 +22,7 @@ struct QRView: View {
             QRCodeGenerator()
             Spacer()
             Button(action: {
-                QRCodeGenerator()
+                QRCodeGenerator() //TODO: need to fix this so that the QR code updates
             }, label: {
                 Text("Generate New QR Code")
                     .foregroundColor(Color.white)
