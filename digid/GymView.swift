@@ -21,6 +21,7 @@ struct GymView: View {
     @State var liviFitnessAvg: Int = 93
     @State var collegeAveFitnessAvg: Int = 100
     @State var cookDougFitnessAvg: Int = 88
+    @State var isNavigationBarHidden: Bool = true
     
     var body: some View {
         NavigationView {
@@ -56,6 +57,11 @@ struct GymView: View {
                 }
                 Spacer()
             }
+        }
+        .navigationBarTitle("Hidden Title")
+        .navigationBarHidden(self.isNavigationBarHidden)
+        .onAppear {
+            self.isNavigationBarHidden = true
         }
     }
 }

@@ -17,7 +17,7 @@ struct DiningHallView: View {
     @State var browerCurrent: Int = 160
     @State var neilsonMax: Int = 300
     @State var neilsonCurrent: Int = 270
-    @State var buschAvg: Int = 90
+    @State var buschAvg: Int = 52
     @State var liviAvg: Int = 104
     @State var browerAvg: Int = 80
     @State var neilsonAvg: Int = 90
