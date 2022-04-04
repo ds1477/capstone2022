@@ -19,7 +19,7 @@ struct LoginView: View {
     @State private var password: String = ""
     @State var color = Color.black.opacity(0.7)
     @State var isNavigationBarHidden: Bool = true
-    @State private var showingAlert = false
+    @State public var showingAlert = false
   
     
     
@@ -63,8 +63,23 @@ struct LoginView: View {
                             return
                         }
                         
-                        signIn(netID: netID, password: password)
-                        appState.hasOnboarded = true
+                        let auth = Auth.auth()
+                        
+                        let netID = netID.trimmingCharacters(in: .whitespacesAndNewlines)
+                        let password = password.trimmingCharacters(in: .whitespacesAndNewlines)
+                        
+                        auth.signIn(withEmail: netID, password: password) { (result, error) in
+                            
+                            guard error == nil else {
+                                print("User not signed in.")
+                                showingAlert = true
+                                return
+                            }
+                            print("User signed in.")
+                            appState.hasOnboarded = true
+                        }
+                        
+                        
            /*             if Auth.auth().currentUser?.isEmailVerified == true {
                             appState.hasOnboarded = true
                         }
@@ -83,7 +98,7 @@ struct LoginView: View {
                             .frame(width:200, height: 50)
                             .background(Color("Color"))
                             .cornerRadius(4)
-                    }).alert("Please verify your email address before signing in. Another verification link has been sent to your provided email address.", isPresented: $showingAlert){
+                    }).alert("The credentials you have provided are invalid.", isPresented: $showingAlert){
                         Button("OK", role: .cancel) {}
                     }
                     
@@ -201,8 +216,8 @@ struct LoginView_Previews: PreviewProvider {
     }
 }
 
-private func signIn(netID: String, password: String) {
-    
+/* private func signIn(netID: String, password: String) {
+
     let auth = Auth.auth()
     
     let netID = netID.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -210,14 +225,14 @@ private func signIn(netID: String, password: String) {
     
     auth.signIn(withEmail: netID, password: password) { (result, error) in
         
-        if let error = error {
-            print("Failed to sign in.", error.localizedDescription)
+        guard error == nil else {
+            print("User not signed in.")
             return
         }
     }
+    print("User signed in.")
     
-    
-}
+} */
 
 private func signUp (netID: String, password: String) {
     

@@ -21,7 +21,15 @@ struct QRView: View {
                 .foregroundColor(Color.black)
             QRCodeGenerator()
             Spacer()
-            
+            Button(action: {
+                QRCodeGenerator()
+            }, label: {
+                Text("Generate New QR Code")
+                    .foregroundColor(Color.white)
+                    .frame(width:200, height: 50)
+                    .background(Color("Color"))
+                    .cornerRadius(4)
+            })
         }
     }
 }
@@ -62,11 +70,13 @@ private func getUserInfo() -> String {
         return "No user exists"
     }
     guard let userEmail: String = user.email else {
-        print("User not found")
+        print("Email not found")
         return "No email exists"
     }
     
+    let random = Int.random(in: 0...567848) + Int.random(in: 0...567848)
+    let vcode = String(random)
+    
     //let vcode: String = user.
-    //return userEmail + "_" + vcode
-    return userEmail
+    return userEmail + "_" + vcode
 }
