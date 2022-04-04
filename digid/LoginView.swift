@@ -19,6 +19,8 @@ struct LoginView: View {
     @State private var password: String = ""
     @State var color = Color.black.opacity(0.7)
     @State var isNavigationBarHidden: Bool = true
+    @State private var showingAlert = false
+  
     
     
     var body: some View {
@@ -63,13 +65,28 @@ struct LoginView: View {
                         
                         signIn(netID: netID, password: password)
                         appState.hasOnboarded = true
+           /*             if Auth.auth().currentUser?.isEmailVerified == true {
+                            appState.hasOnboarded = true
+                        }
+                        else {
+                            showingAlert = true
+                            Auth.auth().currentUser?.sendEmailVerification { (error) in
+                                if let error = error {
+                                    print("Failed to send verification.", error.localizedDescription)
+                                    return
+                                }
+                            }
+                        } */
                     }, label: {
                         Text("Sign In")
                             .foregroundColor(Color.white)
                             .frame(width:200, height: 50)
                             .background(Color("Color"))
                             .cornerRadius(4)
-                    })
+                    }).alert("Please verify your email address before signing in. Another verification link has been sent to your provided email address.", isPresented: $showingAlert){
+                        Button("OK", role: .cancel) {}
+                    }
+                    
                     NavigationLink("Create an Account", destination: SignUpView())
                         .padding()
                 }
@@ -92,6 +109,7 @@ struct SignUpView: View {
     @State private var netID: String = ""
     @State private var password: String = ""
     @State var color = Color.black.opacity(0.7)
+    @State private var showingAlert = false
     
     var body: some View {
             VStack {
@@ -102,7 +120,7 @@ struct SignUpView: View {
            
                 VStack { //todo have textfields clear once user lands on page
                     
-                    TextField("netID@scarletmail.rutges.edu", text: $netID)
+                    TextField("netID@scarletmail.rutgers.edu", text: $netID)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                         .padding()
@@ -115,19 +133,22 @@ struct SignUpView: View {
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.password != "" ? Color("Color") : Color("Color"),lineWidth: 2))
                     
                     Button(action: {
-                        guard !netID.isEmpty, !password.isEmpty else {
+                        guard !netID.isEmpty, !password.isEmpty, isValidEmail(netID) == true else {
+                            print("Failed to create an account.")
                             return
                         }
                         
                        signUp(netID: netID, password: password)
-                        appState.hasOnboarded = true
+                       showingAlert = true
                     }, label: {
                         Text("Create Account")
                             .foregroundColor(Color.white)
                             .frame(width:200, height: 50)
                             .background(Color("Color"))
                             .cornerRadius(4)
-                    })
+                    }).alert("Account was successfully created! Please verify your email address before signing in.", isPresented: $showingAlert){
+                        Button("OK", role: .cancel) {}
+                    }
                 }
                 .padding()
                 

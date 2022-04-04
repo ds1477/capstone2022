@@ -21,6 +21,7 @@ struct QRView: View {
                 .foregroundColor(Color.black)
             QRCodeGenerator()
             Spacer()
+            
         }
     }
 }
