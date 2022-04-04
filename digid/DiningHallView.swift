@@ -26,6 +26,7 @@ struct DiningHallView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
                 Text("Busch Dining Hall")
                 .fontWeight(.black)
                 VStack {
@@ -54,6 +55,7 @@ struct DiningHallView: View {
                     Text("Current Capacity: \(neilsonCurrent)")
                     Text("\(neilsonAvg)% filled")
                 }
+                Spacer()
             }
         }
         .navigationBarTitle("Hidden Title")

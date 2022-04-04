@@ -25,6 +25,7 @@ struct GymView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
                 Text("Werblin Fitness Center")
                 .fontWeight(.black)
                 VStack {
@@ -53,6 +54,7 @@ struct GymView: View {
                     Text("Current Capacity: \(cookDougFitnessCurrent)")
                     Text("\(cookDougFitnessAvg)% filled")
                 }
+                Spacer()
             }
         }
     }
