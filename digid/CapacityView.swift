@@ -20,5 +20,6 @@ func importData() {
             return;
         }
         let current_capacity = snapshot.value as? Int ?? 0;
+        print("Current Capacity: \(current_capacity)")
     })
 }
