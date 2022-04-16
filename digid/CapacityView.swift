@@ -10,5 +10,6 @@ import Firebase
 
 func importData() {
     var browerCurrent: Int
-    var ref = Database.database().reference()
+    var ref = DatabaseReference!
+    ref = Database.database().reference()
 }
