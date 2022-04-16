@@ -11,13 +11,13 @@ import Firebase
 
 struct DataView: View {
     var body: some View {
-        
+        func initrealtimeFirebase() {
+            FirebaseApp.configure()
+        }
     }
 }
 
-func initrealtimeFirebase() {
-    FirebaseApp.configure()
-}
+
 
 func importData() {
     var ref = Database.database().reference()
