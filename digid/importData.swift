@@ -16,6 +16,9 @@ class CapacityData {
             print("An error has occurred.")
             return
         }
+        for i in snap!.documentChanges {
+            
+        }
     }
 }
 
