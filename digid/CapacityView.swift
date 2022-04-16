@@ -15,7 +15,7 @@ func initrealtimeFirebase() {
 func importData() {
     var current_capacity: Int
     var ref = Database.database().reference()
-    ref.child("sensor").getData(completion: {err, snapshot in
+    ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
         guard err == nil else {
             print("An error has occurred.")
             return;
