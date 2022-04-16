@@ -20,6 +20,7 @@
 		F7C6CFB627E66DD40090DA10 /* DiningHallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C6CFB527E66DD40090DA10 /* DiningHallView.swift */; };
 		F7C6CFB827E66E420090DA10 /* GymView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C6CFB727E66E420090DA10 /* GymView.swift */; };
 		F7ED9281280B574F00113185 /* CapacityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ED9280280B574F00113185 /* CapacityView.swift */; };
+		F7ED9283280B6B2000113185 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ED9282280B6B1F00113185 /* DataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		F7C6CFB527E66DD40090DA10 /* DiningHallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallView.swift; sourceTree = "<group>"; };
 		F7C6CFB727E66E420090DA10 /* GymView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymView.swift; sourceTree = "<group>"; };
 		F7ED9280280B574F00113185 /* CapacityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityView.swift; sourceTree = "<group>"; };
+		F7ED9282280B6B1F00113185 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				19A4700A27C32D0E005702CC /* Service.swift */,
 				19B30CD42799E2B600E8AB57 /* LoginView.swift */,
 				19A4700827C2C445005702CC /* LandingView.swift */,
+				F7ED9282280B6B1F00113185 /* DataView.swift */,
 				F7ED9280280B574F00113185 /* CapacityView.swift */,
 				F78FF9CD27CEE4EC00C62EBC /* LocationView.swift */,
 				F7C6CFB527E66DD40090DA10 /* DiningHallView.swift */,
@@ -236,6 +239,7 @@
 			files = (
 				F7C6CFB827E66E420090DA10 /* GymView.swift in Sources */,
 				F7ED9281280B574F00113185 /* CapacityView.swift in Sources */,
+				F7ED9283280B6B2000113185 /* DataView.swift in Sources */,
 				F7C6CFB627E66DD40090DA10 /* DiningHallView.swift in Sources */,
 				19B30CD52799E2B600E8AB57 /* LoginView.swift in Sources */,
 				F78FF9CE27CEE4EC00C62EBC /* LocationView.swift in Sources */,
