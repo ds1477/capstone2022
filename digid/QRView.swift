@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import FirebaseAuth
+import FirebaseDatabase
 import CoreImage.CIFilterBuiltins
 
 struct QRView: View {
@@ -45,7 +46,7 @@ struct QRCodeGenerator : View {
     let filter = CIFilter.qrCodeGenerator()
     let userInfo = getUserInfo()
     var body: some View {
-        Image(uiImage: generateQRCodeImage(String: userInfo))
+        Image(uiImage: generateQRCodeImage(String: getUserInfo()))
             .interpolation(.none)
             .resizable()
             .frame(width: 250, height: 250, alignment: .center)
@@ -64,19 +65,26 @@ struct QRCodeGenerator : View {
     }
 }
 
-private func getUserInfo() -> String {
+private func getUserInfo() -> (String) {
+    let defaults = UserDefaults.standard
+    
     guard let user = Auth.auth().currentUser else {
         print("User not found")
         return "No user exists"
     }
-    guard let userEmail: String = user.email else {
-        print("Email not found")
-        return "No email exists"
-    }
     
-    let random = Int.random(in: 0...567848) + Int.random(in: 0...567848)
-    let vcode = String(random)
+    let uid = user.uid
+    let ref = Database.database().reference()
     
-    //let vcode: String = user.
-    return userEmail + "_" + vcode
+    ref.child("users").child(uid).observe(.value, with: { (snapshot) in
+        if let dictionary = snapshot.value as? NSDictionary {
+            let email = dictionary["email"] as? String ?? ""
+            let vcode = dictionary["vcode"] as? String ?? ""
+            
+            defaults.set(email, forKey: "userEmailKey")
+            defaults.set(vcode, forKey: "userVcodeKey")
+
+        }
+    })
+    return defaults.string(forKey: "userEmailKey")! + "_" + defaults.string(forKey: "userVcodeKey")!
 }
