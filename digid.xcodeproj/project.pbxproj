@@ -17,6 +17,7 @@
 		F73CCE9427C9B59400E845F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F73CCE9327C9B59400E845F1 /* GoogleService-Info.plist */; };
 		F746AA2127C3339D009B1B02 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F746AA2027C3339D009B1B02 /* QRView.swift */; };
 		F78FF9CE27CEE4EC00C62EBC /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FF9CD27CEE4EC00C62EBC /* LocationView.swift */; };
+		F79FE756280AAAB1000761ED /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79FE755280AAAB1000761ED /* DataView.swift */; };
 		F7C6CFB627E66DD40090DA10 /* DiningHallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C6CFB527E66DD40090DA10 /* DiningHallView.swift */; };
 		F7C6CFB827E66E420090DA10 /* GymView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C6CFB727E66E420090DA10 /* GymView.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		F73CCE9327C9B59400E845F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F746AA2027C3339D009B1B02 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 		F78FF9CD27CEE4EC00C62EBC /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		F79FE755280AAAB1000761ED /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		F7C6CFB527E66DD40090DA10 /* DiningHallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallView.swift; sourceTree = "<group>"; };
 		F7C6CFB727E66E420090DA10 /* GymView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 				19A4700827C2C445005702CC /* LandingView.swift */,
 				F78FF9CD27CEE4EC00C62EBC /* LocationView.swift */,
 				F7C6CFB527E66DD40090DA10 /* DiningHallView.swift */,
+				F79FE755280AAAB1000761ED /* DataView.swift */,
 				F7C6CFB727E66E420090DA10 /* GymView.swift */,
 				F746AA2027C3339D009B1B02 /* QRView.swift */,
 				19B30CD62799E2B700E8AB57 /* Assets.xcassets */,
@@ -231,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F79FE756280AAAB1000761ED /* DataView.swift in Sources */,
 				F7C6CFB827E66E420090DA10 /* GymView.swift in Sources */,
 				F7C6CFB627E66DD40090DA10 /* DiningHallView.swift in Sources */,
 				19B30CD52799E2B600E8AB57 /* LoginView.swift in Sources */,
