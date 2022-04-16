@@ -7,3 +7,7 @@
 
 import Foundation
 import Firebase
+
+func importData() {
+    var ref = Database.database().reference().child("val")
+}
