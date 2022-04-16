@@ -20,6 +20,6 @@ func importData() {
             print("An error has occurred.")
             return;
         }
+        let current_capacity = snapshot.value as? Int ?? 0;
     })
-    let current_capacity = snapshot.value as? Int ?? 0;
 }
