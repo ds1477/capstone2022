@@ -13,7 +13,7 @@ func initrealtimeFirebase() {
 }
 
 func importData() {
-    var current_capacity: String
+    var current_capacity: Int
     var ref = Database.database().reference()
     ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
         guard err == nil else {
@@ -21,5 +21,5 @@ func importData() {
             return;
         }
     })
-    let current_capacity = snapshot.value as? String ?? "0";
+    let current_capacity = snapshot.value as? Int ?? "0";
 }
