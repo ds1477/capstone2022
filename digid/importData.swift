@@ -10,15 +10,6 @@ import Foundation
 import FirebaseAuth
 
 class CapacityData {
-    let data = Database.database()
-    data.collection("").addSnapshotListener {(snap, err) in
-        if err != nil {
-            print("An error has occurred.")
-            return
-        }
-        for i in snap!.documentChanges {
-            
-        }
-    }
+    
 }
 */
