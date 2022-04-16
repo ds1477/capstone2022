@@ -6,7 +6,11 @@
 //
 
 import Foundation
-import FirebaseDatabase
+import Firebase
+
+func initrealtimeFirebase() {
+    FirebaseApp.configure()
+}
 
 func importData() {
     var ref = Database.database().reference()
