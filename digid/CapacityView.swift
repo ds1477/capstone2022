@@ -9,5 +9,6 @@ import Foundation
 import Firebase
 
 func importData() {
-    var browerCurrent: Intref = Database.database().reference()
+    var browerCurrent: Int
+    var ref = Database.database().reference()
 }
