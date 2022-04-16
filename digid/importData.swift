@@ -11,7 +11,7 @@ import FirebaseDatabase
 
 class CapacityData {
     let data = Database.database()
-    data.collection("sensor").addSnapshotListener {(snap, err) in
+    data.collection("").addSnapshotListener {(snap, err) in
         if err != nil {
             print("An error has occurred.")
             return
