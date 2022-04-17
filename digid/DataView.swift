@@ -41,7 +41,7 @@ struct importDataView: View {
                     return;
                 }
                 let current_capacity = snapshot.value as? Int ?? 0;
-                return current_capacity;
+                return;
             })
         }
     }
