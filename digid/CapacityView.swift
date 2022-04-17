@@ -5,7 +5,6 @@
 //  Created by Hojun Son on 2022/04/16.
 //
 
-/*
 import SwiftUI
 import Foundation
 import Firebase
@@ -25,4 +24,3 @@ func importData() {
         print("Current Capacity: \(current_capacity)")
     })
 }
-*/
