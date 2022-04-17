@@ -29,7 +29,7 @@ struct CapacityView: View {
     var body: some View {
         VStack {
             Button("Extract Data") {
-                //initrealtimeFirebase()
+                /*initrealtimeFirebase()*/
                 importData()
             }
         }
