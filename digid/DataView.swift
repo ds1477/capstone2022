@@ -1,11 +1,10 @@
 //
-//  CapacityView.swift
+//  DataView.swift
 //  digid
 //
 //  Created by Hojun Son on 2022/04/16.
 //
 
-/*
 import SwiftUI
 import Foundation
 import Firebase
@@ -25,4 +24,15 @@ func importData() {
         print("Current Capacity: \(current_capacity)")
     })
 }
-*/
+
+struct DataView: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+struct DataView_Previews: PreviewProvider {
+    static var previews: some View {
+        DataView()
+    }
+}
