@@ -13,7 +13,7 @@ func initrealtimeFirebase() {
     FirebaseApp.configure()
 }
 
-func importData() {
+func importCurrentCapacity() {
     var ref = Database.database().reference()
     ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
         guard err == nil else {
@@ -29,6 +29,10 @@ struct DataView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
+}
+
+struct importData: View {
+    var ref = Database.database().reference()
 }
 
 struct DataView_Previews: PreviewProvider {
