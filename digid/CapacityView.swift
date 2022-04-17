@@ -9,6 +9,15 @@ import SwiftUI
 import Foundation
 import Firebase
 
+
+
+
+struct CapacityView: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
 func initrealtimeFirebase() {
     FirebaseApp.configure()
 }
@@ -23,13 +32,6 @@ func importData() {
         let current_capacity = snapshot.value as? Int ?? 0;
         print("Current Capacity: \(current_capacity)")
     })
-}
-
-
-struct CapacityView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
 }
 
 struct CapacityView_Previews: PreviewProvider {
