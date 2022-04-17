@@ -32,7 +32,9 @@ struct DataView: View {
 }
 
 struct importDataView: View {
-    var ref = Database.database().reference()
+    var body: some View {
+        var ref = Database.database().reference()
+    }
 }
 
 struct DataView_Previews: PreviewProvider {
