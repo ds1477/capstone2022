@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 import Firebase
 
-func importData() {
+func importCurrent() {
     var ref = Database.database().reference()
     ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
         guard err == nil else {
@@ -25,7 +25,7 @@ struct CapacityView: View {
     var body: some View {
         VStack {
             Button("Current Capacity") {
-                importData()
+                importCurrent()
             }
         }
     }
