@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import FirebaseDatabase
 
 struct DiningHallView: View {
     
