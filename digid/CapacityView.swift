@@ -39,6 +39,9 @@ struct CapacityView: View {
             Button("Current Capacity") {
                 importCurrent()
             }
+            Button("Maximum Capacity") {
+                importMax()
+            }
         }
     }
 }
