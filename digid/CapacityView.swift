@@ -9,9 +9,9 @@ import SwiftUI
 import Foundation
 import Firebase
 
-func initrealtimeFirebase() {
+/*func initrealtimeFirebase() {
     FirebaseApp.configure()
-}
+}*/
 
 func importData() {
     var ref = Database.database().reference()
@@ -29,7 +29,7 @@ struct CapacityView: View {
     var body: some View {
         VStack {
             Button("Extract Data") {
-                initrealtimeFirebase()
+                //initrealtimeFirebase()
                 importData()
             }
         }
