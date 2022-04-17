@@ -34,6 +34,17 @@ struct DataView: View {
 struct importDataView: View {
     var body: some View {
         var ref = Database.database().reference()
+        func importCurrentCapacity() {
+            var ref = Database.database().reference()
+            ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
+                guard err == nil else {
+                    print("An error has occurred.")
+                    return;
+                }
+                let current_capacity = snapshot.value as? Int ?? 0;
+                print("Current Capacity: \(current_capacity)")
+            })
+        }
     }
 }
 
