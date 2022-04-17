@@ -24,7 +24,7 @@ func importData() {
 struct CapacityView: View {
     var body: some View {
         VStack {
-            Button("Extract Data") {
+            Button("Current Capacity") {
                 importData()
             }
         }
