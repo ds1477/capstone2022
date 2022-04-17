@@ -36,12 +36,15 @@ func importMax() {
 struct CapacityView: View {
     var body: some View {
         VStack {
+            Spacer()
             Button("Current Capacity") {
                 importCurrent()
             }
+            Spacer()
             Button("Maximum Capacity") {
                 importMax()
             }
+            Spacer()
         }
     }
 }
