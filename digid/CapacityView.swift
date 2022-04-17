@@ -28,8 +28,10 @@ func importData() {
 
 struct CapacityView: View {
     var body: some View {
-        initrealtimeFirebase()
-        importData()
+        VStack {
+            initrealtimeFirebase()
+            importData()
+        }
     }
 }
 
