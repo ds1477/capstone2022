@@ -17,7 +17,7 @@ func importData() {
             return;
         }
         let current_capacity = snapshot.value as? Int ?? 0;
-        Text("Recommended Maximum Capacity: \(buschMax)")
+        Text("Current Capacity: \(current_capacity)")
     })
 }
 
