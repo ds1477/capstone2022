@@ -31,7 +31,7 @@ struct DataView: View {
     }
 }
 
-struct importData: View {
+struct importDataView: View {
     var ref = Database.database().reference()
 }
 
