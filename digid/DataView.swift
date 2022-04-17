@@ -34,13 +34,14 @@ struct DataView: View {
 struct importDataView: View {
     var body: some View {
         var ref = Database.database().reference()
-        func importCurrentCapacity(Int : Int) {
+        func importCurrentCapacity() {
             ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
                 guard err == nil else {
                     print("An error has occurred.")
                     return;
                 }
                 let current_capacity = snapshot.value as? Int ?? 0;
+                return current_capacity; 
             })
         }
     }
