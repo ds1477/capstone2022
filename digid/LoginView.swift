@@ -75,6 +75,7 @@ struct LoginView: View {
                                 showingAlert = true
                                 return
                             }
+                            
                             print("User signed in.")
                             appState.hasOnboarded = true
                         }
@@ -154,6 +155,7 @@ struct SignUpView: View {
                         }
                         
                        signUp(netID: netID, password: password)
+                    
                        showingAlert = true
                     }, label: {
                         Text("Create Account")
@@ -262,13 +264,16 @@ private func signUp (netID: String, password: String) {
                 }
                 
                 print("Successfully signed user up.")
-                
+                result?.user.sendEmailVerification(completion: { (error) in
+                    
+                    if let error = error {
+                        print("Failed to send verification email.", error.localizedDescription)
+                        return
+                    }
+                    //verification email was sent
+                })
             }
         }
-        
-    }
-    else {
-        //alert to enter correct email addess
     }
 }
 
