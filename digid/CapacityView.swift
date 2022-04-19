@@ -24,6 +24,7 @@ func importCurrent() -> Int {
         CapacityCheck.current_capacity = snapshot.value as? Int ?? 0;
         print("Current Capacity: \(CapacityCheck.current_capacity)")
     })
+    return CapacityCheck.current_capacity
 }
 
 func importMax() -> Int {
@@ -36,6 +37,7 @@ func importMax() -> Int {
         CapacityCheck.max_capacity = snapshot.value as? Int ?? 0;
         print("Maximum Capacity: \(CapacityCheck.max_capacity)")
     })
+    return CapacityCheck.current_capacity
 }
 
 
