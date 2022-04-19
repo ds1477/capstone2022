@@ -57,7 +57,6 @@ struct CapacityView: View {
     }
 }
 
-
 struct CapacityView_Previews: PreviewProvider {
     static var previews: some View {
         CapacityView()
