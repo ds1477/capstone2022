@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 import Firebase
 
-func importCurrent() -> Int {
+func importCurrent() {
     var ref = Database.database().reference()
     ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
         guard err == nil else {
