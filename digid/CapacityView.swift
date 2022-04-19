@@ -42,6 +42,7 @@ func importMax() -> Int {
 
 
 struct CapacityView: View {
+    @State var isNavigationBarHidden: Bool = true
     var body: some View {
         NavigationView {
             VStack {
@@ -52,6 +53,11 @@ struct CapacityView: View {
                 Text("Maximum Capacity: \(max_cap)")
                 Spacer()
             }
+        }
+        .navigationBarTitle("Hidden Title")
+        .navigationBarHidden(self.isNavigationBarHidden)
+        .onAppear {
+            self.isNavigationBarHidden = true
         }
     }
 }
