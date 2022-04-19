@@ -14,34 +14,28 @@ struct CapacityCheck {
     static var max_capacity = 0
 }
 
-func importCurrent() {
+func importCurrent() -> Int {
     var ref = Database.database().reference()
     ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
         guard err == nil else {
             print("An error has occurred.")
-            return;
+            return 0;
         }
         CapacityCheck.current_capacity = snapshot.value as? Int ?? 0;
         print("Current Capacity: \(CapacityCheck.current_capacity)")
     })
-    func returnCurrent() -> Int {
-        return CapacityCheck.current_capacity
-    }
 }
 
-func importMax() {
+func importMax() -> Int {
     var ref = Database.database().reference()
     ref.child("sensor").child("max_cap").getData(completion: {err, snapshot in
         guard err == nil else {
             print("An error has occurred.")
-            return;
+            return 0;
         }
         CapacityCheck.max_capacity = snapshot.value as? Int ?? 0;
         print("Maximum Capacity: \(CapacityCheck.max_capacity)")
     })
-    func returnMax() -> Int {
-        return CapacityCheck.max_capacity
-    }
 }
 
 
