@@ -31,6 +31,17 @@ struct QRView: View {
                     .background(Color("Color"))
                     .cornerRadius(4)
             })
+            Spacer()
+            Button (action: {
+                //Guest QR Code implementation
+            },label: {
+                Text("Generate Guest QR Code")
+                    .foregroundColor(Color.white)
+                    .frame(width:200, height: 50)
+                    .background(Color("Color"))
+                    .cornerRadius(4)
+            })
+
         }
     }
 }
