@@ -43,13 +43,15 @@ func importMax() -> Int {
 
 struct CapacityView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            let current_cap = importCurrent()
-            let max_cap = importMax()
-            Text("Current Capacity: \(current_cap)")
-            Text("Maximum Capacity: \(max_cap)")
-            Spacer()
+        NavigationView {
+            VStack {
+                Spacer()
+                let current_cap = importCurrent()
+                let max_cap = importMax()
+                Text("Current Capacity: \(current_cap)")
+                Text("Maximum Capacity: \(max_cap)")
+                Spacer()
+            }
         }
     }
 }
