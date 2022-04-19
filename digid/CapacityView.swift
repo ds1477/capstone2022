@@ -10,11 +10,11 @@ import Foundation
 import Firebase
 
 struct CapacityCheck {
-    static var current_capacity = 0
-    static var max_capacity = 0
+    static var current = 0
+    static var max = 0
 }
 
-func importCurrent() {
+func importCurrent() -> Int {
     var ref = Database.database().reference()
     ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
         guard err == nil else {
@@ -23,6 +23,7 @@ func importCurrent() {
         }
         let current_capacity = snapshot.value as? Int ?? 0;
         print("Current Capacity: \(current_capacity)")
+        return CapacityCheck.current_capacity
     })
 }
 
