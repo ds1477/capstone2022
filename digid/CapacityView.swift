@@ -22,7 +22,7 @@ func importCurrent() -> Int {
             return;
         }
         CapacityCheck.current_capacity = snapshot.value as? Int ?? 0;
-        print("Current Capacity: \(CapacityCheck.current_capacity)")
+        //print("Current Capacity: \(CapacityCheck.current_capacity)")
     })
     return CapacityCheck.current_capacity
 }
@@ -35,7 +35,7 @@ func importMax() -> Int {
             return;
         }
         CapacityCheck.max_capacity = snapshot.value as? Int ?? 0;
-        print("Maximum Capacity: \(CapacityCheck.max_capacity)")
+        //print("Maximum Capacity: \(CapacityCheck.max_capacity)")
     })
     return CapacityCheck.max_capacity
 }
@@ -48,15 +48,7 @@ struct CapacityView: View {
             let current_cap = importCurrent()
             let max_cap = importMax()
             Text("Current Capacity: \(current_cap)")
-                .foregroundColor(Color.white)
-                .frame(width:200, height: 50)
-                .background(Color("Color"))
-                .cornerRadius(4)
             Text("Maximum Capacity: \(max_cap)")
-                .foregroundColor(Color.white)
-                .frame(width:200, height: 50)
-                .background(Color("Color"))
-                .cornerRadius(4)
             Spacer()
         }
     }
