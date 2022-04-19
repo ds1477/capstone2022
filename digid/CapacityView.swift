@@ -14,7 +14,7 @@ struct CapacityCheck {
     static var max = 0
 }
 
-func importCurrent() -> Int {
+func importCurrent() {
     var ref = Database.database().reference()
     ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
         guard err == nil else {
@@ -23,7 +23,6 @@ func importCurrent() -> Int {
         }
         let current_capacity = snapshot.value as? Int ?? 0;
         print("Current Capacity: \(current_capacity)")
-        return CapacityCheck.current
     })
 }
 
