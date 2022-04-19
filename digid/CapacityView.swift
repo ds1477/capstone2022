@@ -47,10 +47,12 @@ struct CapacityView: View {
             Spacer()
             Button("Current Capacity") {
                 let current_cap = importCurrent()
+                Text("Current Capacity: \(current_cap)")
             }
             Spacer()
             Button("Maximum Capacity") {
                 let max_cap = importMax()
+                Text("Current Capacity: \(max_cap)")
             }
             Spacer()
         }
