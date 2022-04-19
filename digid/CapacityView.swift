@@ -9,6 +9,11 @@ import SwiftUI
 import Foundation
 import Firebase
 
+struct CapacityCheck {
+    static var current_capacity = 0
+    static var max_capacity = 0
+}
+
 func importCurrent() {
     var ref = Database.database().reference()
     ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
