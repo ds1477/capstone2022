@@ -10,8 +10,8 @@ import Foundation
 import Firebase
 
 struct CapacityCheck {
-    static var current = 0
-    static var max = 0
+    static var current_cap = 0
+    static var max_cap = 0
 }
 
 func importCurrent() {
