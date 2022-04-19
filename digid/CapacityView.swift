@@ -47,15 +47,16 @@ struct CapacityView: View {
             Spacer()
             let current_cap = importCurrent()
             let max_cap = importMax()
-            /*
-            Button("Current Capacity") {
-                let current_cap = importCurrent()
-            }
-            Spacer()
-            Button("Maximum Capacity") {
-                let max_cap = importMax()
-            }
-             */
+            Text("Current Capacity: \(current_cap)")
+                .foregroundColor(Color.white)
+                .frame(width:200, height: 50)
+                .background(Color("Color"))
+                .cornerRadius(4)
+            Text("Maximum Capacity: \(max_cap)")
+                .foregroundColor(Color.white)
+                .frame(width:200, height: 50)
+                .background(Color("Color"))
+                .cornerRadius(4)
             Spacer()
         }
     }
