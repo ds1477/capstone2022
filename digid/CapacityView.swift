@@ -33,8 +33,8 @@ func importMax() {
             print("An error has occurred.")
             return;
         }
-        let max_capacity = snapshot.value as? Int ?? 0;
-        print("Maximum Capacity: \(max_capacity)")
+        CapacityCheck.max_capacity = snapshot.value as? Int ?? 0;
+        print("Maximum Capacity: \(CapacityCheck.max_capacity)")
     })
 }
 
