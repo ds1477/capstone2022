@@ -27,17 +27,16 @@ struct QRView: View {
             }, label: {
                 Text("Generate New QR Code")
                     .foregroundColor(Color.white)
-                    .frame(width:200, height: 50)
+                    .frame(width:250, height: 50)
                     .background(Color("Color"))
                     .cornerRadius(4)
             })
-            Spacer()
             Button (action: {
                 //Guest QR Code implementation
             },label: {
                 Text("Generate Guest QR Code")
                     .foregroundColor(Color.white)
-                    .frame(width:200, height: 50)
+                    .frame(width:250, height: 50)
                     .background(Color("Color"))
                     .cornerRadius(4)
             })
@@ -97,5 +96,5 @@ private func getUserInfo() -> (String) {
 
         }
     })
-    return defaults.string(forKey: "userEmailKey")! + "_" + defaults.string(forKey: "userVcodeKey")!
+    return defaults.string(forKey: "userEmailKey") ?? "No user exists" + "_" //+ defaults.string(forKey: "userVcodeKey") ?? "default value"
 }
