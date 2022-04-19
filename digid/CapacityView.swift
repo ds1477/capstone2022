@@ -46,11 +46,11 @@ struct CapacityView: View {
         VStack {
             Spacer()
             Button("Current Capacity") {
-                importCurrent()
+                let current_cap = importCurrent()
             }
             Spacer()
             Button("Maximum Capacity") {
-                importMax()
+                let max_cap = importMax()
             }
             Spacer()
         }
