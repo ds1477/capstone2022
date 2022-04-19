@@ -23,8 +23,8 @@ func importCurrent() {
         }
         CapacityCheck.current_capacity = snapshot.value as? Int ?? 0;
         print("Current Capacity: \(CapacityCheck.current_capacity)")
-        func returnCurrent() {
-            
+        func returnCurrent() -> Int {
+            return CapacityCheck.current_capacity
         }
     })
 }
