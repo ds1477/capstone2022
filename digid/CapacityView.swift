@@ -9,10 +9,6 @@ import SwiftUI
 import Foundation
 import Firebase
 
-struct CapacityCheck {
-    var current_cap = 0
-    var max_cap = 0
-}
 
 func importCurrent() -> Int {
     var ref = Database.database().reference()
@@ -43,7 +39,7 @@ struct CapacityView: View {
         VStack {
             Spacer()
             Button("Current Capacity") {
-                importCurrent()
+                importCurrent(current_cap)
             }
             Spacer()
             Button("Maximum Capacity") {
