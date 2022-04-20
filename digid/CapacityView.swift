@@ -38,6 +38,10 @@ func importMax() -> Int {
     return CapacityCheck.max_capacity
 }
 
+func capacityFilled(current_cap: Int, max_cap: Int) -> Int {
+    return 100 * (current_cap / max_cap)
+}
+
 
 struct CapacityView: View {
     @State var isNavigationBarHidden: Bool = true
@@ -49,8 +53,10 @@ struct CapacityView: View {
                 Spacer()
                 let current_cap = importCurrent()
                 let max_cap = importMax()
+                let average = capacityFilled(current_cap: Int.current_cap, max_cap: Int.max_cap)
                 Text("Current Capacity: \(current_cap)")
                 Text("Maximum Capacity: \(max_cap)")
+                //Text("Capacity Filled: \(percentage)")
                 Spacer()
             }
         }
