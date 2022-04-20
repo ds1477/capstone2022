@@ -50,10 +50,6 @@ struct DiningHallView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Image("logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 250, height: 150, alignment: .center)
                 let current_cap = importCurrent()
                 let max_cap = importMax()
                 let capacity = capacityFilled(current_cap: current_cap, max_cap: max_cap)
