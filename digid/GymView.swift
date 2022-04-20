@@ -13,6 +13,7 @@ struct GymView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
                 Image("logo")
                     .resizable()
                     .scaledToFit()
@@ -53,6 +54,7 @@ struct GymView: View {
                         .background(Color("Color"))
                         .cornerRadius(4)
                 }
+                Spacer()
             }
         }
         .navigationBarTitle("Hidden Title")
