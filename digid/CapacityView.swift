@@ -47,10 +47,9 @@ struct CapacityView: View {
         NavigationView {
             VStack {
                 Spacer()
-                let average = 100 * (current_cap / max_cap)
                 Text("Current Capacity: \(current_cap)")
                 Text("Maximum Capacity: \(max_cap)")
-                Text("Capacity Filled: \(average)%")
+                //Text("Capacity Filled: \(average)%")
                 Spacer()
             }
         }
