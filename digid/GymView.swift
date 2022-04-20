@@ -20,8 +20,8 @@ struct GymView: View {
                 VStack {
                     Text("College Ave Fitness Center: ")
                     .fontWeight(.black)
-                    Text("Current: 140 | Max: 250")
-                    Text("Percentage Filled: 56%")
+                    Text("Current: 115 | Max: 120")
+                    Text("Percentage Filled: 96%")
                         .foregroundColor(Color.white)
                         .frame(width:200, height: 50)
                         .background(Color("Color"))
