@@ -54,15 +54,16 @@ struct CapacityView: View {
                 let current_cap = importCurrent()
                 let max_cap = importMax()
                 let capacity = capacityFilled(current_cap: current_cap, max_cap: max_cap)
-                Text("Brower Commons: ")
-                .fontWeight(.black)
-                Text("Current: \(current_cap) | Max: \(max_cap)")
-                Text("Percentage Filled: \(capacity)%")
-                    .foregroundColor(Color.white)
-                    .frame(width:200, height: 50)
-                    .background(Color("Color"))
-                    .cornerRadius(4)
-                Spacer()
+                VStack {
+                    Text("Brower Commons: ")
+                    .fontWeight(.black)
+                    Text("Current: \(current_cap) | Max: \(max_cap)")
+                    Text("Percentage Filled: \(capacity)%")
+                        .foregroundColor(Color.white)
+                        .frame(width:200, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                }
             }
         }
         .navigationBarTitle("Hidden Title")
