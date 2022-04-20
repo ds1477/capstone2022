@@ -53,7 +53,7 @@ struct CapacityView: View {
                 Spacer()
                 let current_cap = importCurrent()
                 let max_cap = importMax()
-                let average = capacityFilled(current_cap, max_cap)
+                let average = capacityFilled(current_cap: current_cap, max_cap: max_cap)
                 Text("Current Capacity: \(current_cap)")
                 Text("Maximum Capacity: \(max_cap)")
                 //Text("Capacity Filled: \(percentage)")
