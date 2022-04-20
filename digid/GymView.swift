@@ -13,7 +13,28 @@ struct GymView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 250, height: 150, alignment: .center)
+                VStack {
+                    Text("Livingston Dining Commons: ")
+                    .fontWeight(.black)
+                    Text("Current: 140 | Max: 250")
+                    Text("Percentage Filled: 56%")
+                        .foregroundColor(Color.white)
+                        .frame(width:200, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                    Text("Neilson Dining Hall: ")
+                    .fontWeight(.black)
+                    Text("Current: 120 | Max: 270")
+                    Text("Percentage Filled: 44%")
+                        .foregroundColor(Color.white)
+                        .frame(width:200, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                }
             }
         }
         .navigationBarTitle("Hidden Title")
