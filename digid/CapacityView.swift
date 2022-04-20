@@ -35,6 +35,9 @@ func importMax() -> Int {
         }
         CapacityCheck.max_capacity = snapshot.value as? Int ?? 0;
     })
+    if CapacityCheck.max_capacity == 0 {
+        return importMax();
+    }
     return CapacityCheck.max_capacity
 }
 
