@@ -18,7 +18,7 @@ struct GymView: View {
                     .scaledToFit()
                     .frame(width: 250, height: 150, alignment: .center)
                 VStack {
-                    Text("Livingston Dining Commons: ")
+                    Text("College Ave Fitness Center: ")
                     .fontWeight(.black)
                     Text("Current: 140 | Max: 250")
                     Text("Percentage Filled: 56%")
@@ -26,7 +26,7 @@ struct GymView: View {
                         .frame(width:200, height: 50)
                         .background(Color("Color"))
                         .cornerRadius(4)
-                    Text("Neilson Dining Hall: ")
+                    Text("Werblin Recreation Center: ")
                     .fontWeight(.black)
                     Text("Current: 120 | Max: 270")
                     Text("Percentage Filled: 44%")
