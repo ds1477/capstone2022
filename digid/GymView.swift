@@ -13,7 +13,6 @@ struct GymView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
                 Image("logo")
                     .resizable()
                     .scaledToFit()
