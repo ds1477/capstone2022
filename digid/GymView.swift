@@ -35,6 +35,24 @@ struct GymView: View {
                         .background(Color("Color"))
                         .cornerRadius(4)
                 }
+                VStack {
+                    Text("Livingston Fitness Center: ")
+                    .fontWeight(.black)
+                    Text("Current: 105 | Max: 120")
+                    Text("Percentage Filled: 88%")
+                        .foregroundColor(Color.white)
+                        .frame(width:200, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                    Text("Cook/Douglass Recreation Center: ")
+                    .fontWeight(.black)
+                    Text("Current: 110 | Max: 140")
+                    Text("Percentage Filled: 79%")
+                        .foregroundColor(Color.white)
+                        .frame(width:200, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                }
             }
         }
         .navigationBarTitle("Hidden Title")
