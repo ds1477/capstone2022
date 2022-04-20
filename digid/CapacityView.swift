@@ -59,8 +59,6 @@ struct CapacityView: View {
                 Text("Current: \(current_cap) | Max: \(max_cap)")
                     .foregroundColor(Color.white)
                     .frame(width:200, height: 50)
-                    .background(Color("Color"))
-                    .cornerRadius(4)
                 Text("Capacity Filled: \(capacity)%")
                     .foregroundColor(Color.white)
                     .frame(width:200, height: 50)
