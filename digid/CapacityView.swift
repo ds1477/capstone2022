@@ -64,6 +64,36 @@ struct CapacityView: View {
                         .background(Color("Color"))
                         .cornerRadius(4)
                 }
+                VStack {
+                    Text("Busch Dining Hall: ")
+                    .fontWeight(.black)
+                    Text("Current: 160 | Max: 240")
+                    Text("Percentage Filled: 67%")
+                        .foregroundColor(Color.white)
+                        .frame(width:200, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                }
+                VStack {
+                    Text("Livingston Dining Commons: ")
+                    .fontWeight(.black)
+                    Text("Current: 140 | Max: 250")
+                    Text("Percentage Filled: 56%")
+                        .foregroundColor(Color.white)
+                        .frame(width:200, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                }
+                VStack {
+                    Text("Neilson Dining Hall: ")
+                    .fontWeight(.black)
+                    Text("Current: 120 | Max: 270")
+                    Text("Percentage Filled: 44%")
+                        .foregroundColor(Color.white)
+                        .frame(width:200, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                }
             }
         }
         .navigationBarTitle("Hidden Title")
