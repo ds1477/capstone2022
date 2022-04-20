@@ -39,7 +39,7 @@ func importMax() -> Int {
 }
 
 func capacityFilled(current_cap: Int, max_cap: Int) -> Int {
-    return 100 * (current_cap / max_cap)
+    return (100 * current_cap) / max_cap
 }
 
 
