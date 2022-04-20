@@ -54,6 +54,8 @@ struct CapacityView: View {
                 let current_cap = importCurrent()
                 let max_cap = importMax()
                 let capacity = capacityFilled(current_cap: current_cap, max_cap: max_cap)
+                Text("Brower Commons: ")
+                .fontWeight(.black)
                 Text("Current Capacity: \(current_cap)")
                     .foregroundColor(Color.white)
                     .frame(width:200, height: 50)
