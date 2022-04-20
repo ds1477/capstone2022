@@ -57,7 +57,7 @@ struct CapacityView: View {
                 Text("Brower Commons: ")
                 .fontWeight(.black)
                 Text("Current: \(current_cap) | Max: \(max_cap)")
-                Text("Capacity Filled: \(capacity)%")
+                Text("Percentage Filled: \(capacity)%")
                     .foregroundColor(Color.white)
                     .frame(width:200, height: 50)
                     .background(Color("Color"))
