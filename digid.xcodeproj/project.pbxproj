@@ -17,7 +17,7 @@
 		F73CCE9427C9B59400E845F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F73CCE9327C9B59400E845F1 /* GoogleService-Info.plist */; };
 		F746AA2127C3339D009B1B02 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F746AA2027C3339D009B1B02 /* QRView.swift */; };
 		F78FF9CE27CEE4EC00C62EBC /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FF9CD27CEE4EC00C62EBC /* LocationView.swift */; };
-		F7B2A94C280B95250014260D /* CapacityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2A94B280B95250014260D /* CapacityView.swift */; };
+		F7B2A94C280B95250014260D /* DiningHallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2A94B280B95250014260D /* DiningHallView.swift */; };
 		F7C6CFB827E66E420090DA10 /* GymView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C6CFB727E66E420090DA10 /* GymView.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +35,7 @@
 		F73CCE9327C9B59400E845F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F746AA2027C3339D009B1B02 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 		F78FF9CD27CEE4EC00C62EBC /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
-		F7B2A94B280B95250014260D /* CapacityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityView.swift; sourceTree = "<group>"; };
+		F7B2A94B280B95250014260D /* DiningHallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallView.swift; sourceTree = "<group>"; };
 		F7C6CFB727E66E420090DA10 /* GymView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,7 +77,7 @@
 				19A4700A27C32D0E005702CC /* Service.swift */,
 				19B30CD42799E2B600E8AB57 /* LoginView.swift */,
 				19A4700827C2C445005702CC /* LandingView.swift */,
-				F7B2A94B280B95250014260D /* CapacityView.swift */,
+				F7B2A94B280B95250014260D /* DiningHallView.swift */,
 				F78FF9CD27CEE4EC00C62EBC /* LocationView.swift */,
 				F7C6CFB727E66E420090DA10 /* GymView.swift */,
 				F746AA2027C3339D009B1B02 /* QRView.swift */,
@@ -232,7 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7C6CFB827E66E420090DA10 /* GymView.swift in Sources */,
-				F7B2A94C280B95250014260D /* CapacityView.swift in Sources */,
+				F7B2A94C280B95250014260D /* DiningHallView.swift in Sources */,
 				19B30CD52799E2B600E8AB57 /* LoginView.swift in Sources */,
 				F78FF9CE27CEE4EC00C62EBC /* LocationView.swift in Sources */,
 				19A4700B27C32D0E005702CC /* Service.swift in Sources */,
