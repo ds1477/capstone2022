@@ -43,7 +43,7 @@ func capacityFilled(current_cap: Int, max_cap: Int) -> Int {
 }
 
 
-struct CapacityView: View {
+struct DiningHallView: View {
     @State var isNavigationBarHidden: Bool = true
     var current_cap = importCurrent()
     var max_cap = importMax()
@@ -94,6 +94,7 @@ struct CapacityView: View {
                         .background(Color("Color"))
                         .cornerRadius(4)
                 }
+                Spacer()
             }
         }
         .navigationBarTitle("Hidden Title")
@@ -104,8 +105,8 @@ struct CapacityView: View {
     }
 }
 
-struct CapacityView_Previews: PreviewProvider {
+struct DiningHallView_Previews: PreviewProvider {
     static var previews: some View {
-        CapacityView()
+        DiningHallView()
     }
 }
