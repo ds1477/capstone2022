@@ -41,12 +41,14 @@ func importMax() -> Int {
 
 struct CapacityView: View {
     @State var isNavigationBarHidden: Bool = true
+    var current_cap = importCurrent()
+    var max_cap = importMax()
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
-                let current_cap = importCurrent()
-                let max_cap = importMax()
+                //let current_cap = importCurrent()
+                //let max_cap = importMax()
                 let average = 100 * (current_cap / max_cap)
                 Text("Current Capacity: \(current_cap)")
                 Text("Maximum Capacity: \(max_cap)")
