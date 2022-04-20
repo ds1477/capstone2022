@@ -49,7 +49,6 @@ struct CapacityView: View {
                 Spacer()
                 Text("Current Capacity: \(current_cap)")
                 Text("Maximum Capacity: \(max_cap)")
-                //Text("Capacity Filled: \(average)%")
                 Spacer()
             }
         }
