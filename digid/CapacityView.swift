@@ -56,7 +56,7 @@ struct CapacityView: View {
                 let capacity = capacityFilled(current_cap: current_cap, max_cap: max_cap)
                 Text("Current Capacity: \(current_cap)")
                 Text("Maximum Capacity: \(max_cap)")
-                //Text("Capacity Filled: \(capacity)")
+                Text("Capacity Filled: \(capacity)")
                 Spacer()
             }
         }
