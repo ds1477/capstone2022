@@ -81,8 +81,6 @@ struct DiningHallView: View {
                         .frame(width:200, height: 50)
                         .background(Color("Color"))
                         .cornerRadius(4)
-                }
-                VStack {
                     Text("Neilson Dining Hall: ")
                     .fontWeight(.black)
                     Text("Current: 120 | Max: 270")
