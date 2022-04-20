@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct GymView: View {
-    
-    
     @State var isNavigationBarHidden: Bool = true
     
     var body: some View {
