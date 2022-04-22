@@ -53,7 +53,6 @@ struct DiningHallView: View {
                 let current_cap = importCurrent()
                 let max_cap = importMax()
                 let capacity = capacityFilled(current_cap: current_cap, max_cap: max_cap)
-                Spacer()
                 VStack {
                     Text("Brower Commons: ")
                     .fontWeight(.black)
