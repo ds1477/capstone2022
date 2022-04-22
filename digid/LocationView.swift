@@ -11,6 +11,9 @@ struct LocationView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                Image("dininghallpic")
+                    .resizable()
+                    .scaledToFit()
                 VStack {
                     Image("logo")
                         .resizable()
