@@ -16,10 +16,6 @@ struct LocationView: View {
                     .scaledToFit()
                     .frame(width: 250, height: 150, alignment: .center)
                 Spacer()
-                Image("dininghallpic")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 250, height: 150, alignment: .center)
                 NavigationLink(destination: DiningHallView(), label: {
                     Text("Dining Hall Capacitance")
                     .foregroundColor(Color.white)
