@@ -50,6 +50,7 @@ struct DiningHallView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                Image("dininghallpic")
                 VStack {
                     let current_cap = importCurrent()
                     let max_cap = importMax()
