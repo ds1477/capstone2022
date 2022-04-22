@@ -10,10 +10,6 @@ import SwiftUI
 struct LocationView: View {
     var body: some View {
         NavigationView {
-            Image("dininghallpic")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 250, height: 150, alignment: .center)
             VStack {
                 Image("logo")
                     .resizable()
