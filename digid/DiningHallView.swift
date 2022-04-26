@@ -15,7 +15,7 @@ struct CapacityCheck {
 }
 
 func importCurrent() -> Int {
-    var ref = Database.database().reference()
+    let ref = Database.database().reference()
     ref.child("sensor").child("current_cap").getData(completion: {err, snapshot in
         guard err == nil else {
             print("An error has occurred.")
@@ -27,7 +27,7 @@ func importCurrent() -> Int {
 }
 
 func importMax() -> Int {
-    var ref = Database.database().reference()
+    let ref = Database.database().reference()
     ref.child("sensor").child("max_cap").getData(completion: {err, snapshot in
         guard err == nil else {
             print("An error has occurred.")
@@ -50,6 +50,12 @@ struct DiningHallView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 250, height: 150, alignment: .center)
+                    Spacer()
+                
                 let current_cap = importCurrent()
                 let max_cap = importMax()
                 let capacity = capacityFilled(current_cap: current_cap, max_cap: max_cap)
@@ -57,37 +63,31 @@ struct DiningHallView: View {
                     Text("Brower Commons: ")
                     .fontWeight(.black)
                     Text("Current: \(current_cap) | Max: \(max_cap)")
-                    Text("Percentage Filled: \(capacity)%")
-                        .foregroundColor(Color.white)
-                        .frame(width:200, height: 50)
-                        .background(Color("Color"))
-                        .cornerRadius(4)
+                    cell1(" Percentage Filled: \(capacity)% ")
+                    Spacer()
+                            .frame(height: 10)
+                    
                     Text("Busch Dining Hall: ")
                     .fontWeight(.black)
                     Text("Current: 160 | Max: 240")
-                    Text("Percentage Filled: 67%")
-                        .foregroundColor(Color.white)
-                        .frame(width:200, height: 50)
-                        .background(Color("Color"))
-                        .cornerRadius(4)
+                    cell2(" Percentage Filled: 67% ")
+                    Spacer()
+                            .frame(height: 10)
                 }
                 VStack {
                     Text("Livingston Dining Commons: ")
                     .fontWeight(.black)
                     Text("Current: 140 | Max: 250")
-                    Text("Percentage Filled: 56%")
-                        .foregroundColor(Color.white)
-                        .frame(width:200, height: 50)
-                        .background(Color("Color"))
-                        .cornerRadius(4)
+                    cell3(" Percentage Filled: 56% ")
+                    Spacer()
+                            .frame(height: 10)
+                    
                     Text("Neilson Dining Hall: ")
                     .fontWeight(.black)
                     Text("Current: 120 | Max: 270")
-                    Text("Percentage Filled: 44%")
-                        .foregroundColor(Color.white)
-                        .frame(width:200, height: 50)
-                        .background(Color("Color"))
-                        .cornerRadius(4)
+                    cell4(" Percentage Filled: 44% ")
+                    Spacer()
+                            .frame(height: 10)
                 }
                 Spacer()
             }
@@ -104,4 +104,85 @@ struct DiningHallView_Previews: PreviewProvider {
     static var previews: some View {
         DiningHallView()
     }
+}
+
+let current_cap = importCurrent()
+let max_cap = importMax()
+let capacity = capacityFilled(current_cap: current_cap, max_cap: max_cap)
+
+private var percent1: CGFloat = CGFloat(capacity)
+private var percent2: CGFloat = 0.67
+private var percent3: CGFloat = 0.56
+private var percent4: CGFloat = 0.44
+
+@ViewBuilder
+private func cell1(_ string: String) -> some View {
+    Text(string)
+        .padding(.all, 5)
+        .background(
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .foregroundColor(Color("Color-1"))
+                        .frame(width: geometry.size.width * percent1/100, height: geometry.size.height)
+                    Capsule()
+                        .stroke(Color("Color"), lineWidth: 1)
+                }
+            }
+        )
+        .clipShape(Capsule())
+}
+
+@ViewBuilder
+private func cell2(_ string: String) -> some View {
+    Text(string)
+        .padding(.all, 5)
+        .background(
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .foregroundColor(Color("Color-1"))
+                        .frame(width: geometry.size.width * percent2, height: geometry.size.height)
+                    Capsule()
+                        .stroke(Color("Color"), lineWidth: 1)
+                }
+            }
+        )
+        .clipShape(Capsule())
+}
+
+@ViewBuilder
+private func cell3(_ string: String) -> some View {
+    Text(string)
+        .padding(.all, 5)
+        .background(
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .foregroundColor(Color("Color-1"))
+                        .frame(width: geometry.size.width * percent3, height: geometry.size.height)
+                    Capsule()
+                        .stroke(Color("Color"), lineWidth: 1)
+                }
+            }
+        )
+        .clipShape(Capsule())
+}
+
+@ViewBuilder
+private func cell4(_ string: String) -> some View {
+    Text(string)
+        .padding(.all, 5)
+        .background(
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .foregroundColor(Color("Color-1"))
+                        .frame(width: geometry.size.width * percent4, height: geometry.size.height)
+                    Capsule()
+                        .stroke(Color("Color"), lineWidth: 1)
+                }
+            }
+        )
+        .clipShape(Capsule())
 }
