@@ -14,6 +14,7 @@ struct LoginView: View {
     
     @EnvironmentObject var appState: AppState
     @State var showForgotPassword = false
+    @State var showEmailConfirmation = false
     
     @State private var netID: String = ""
     @State private var password: String = ""
@@ -45,6 +46,16 @@ struct LoginView: View {
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.password != "" ? Color("Color") : Color("Color"),lineWidth: 2))
                     
                     HStack {
+                       /* Button (action: {
+                            showEmailConfirmation.toggle()
+                        }, label: {
+                            Text("Email verification?")
+                        })
+                            .font(.system(size: 14))
+                            .sheet(isPresented: $showEmailConfirmation) {
+                                EmailConfirmationView()
+                            }*/
+
                         Spacer()
                         Button (action: {
                             showForgotPassword.toggle()
@@ -75,31 +86,28 @@ struct LoginView: View {
                                 showingAlert = true
                                 return
                             }
-                            
-                            print("User signed in.")
-                            appState.hasOnboarded = true
-                        }
-                        
-                        
-           /*             if Auth.auth().currentUser?.isEmailVerified == true {
-                            appState.hasOnboarded = true
-                        }
-                        else {
-                            showingAlert = true
-                            Auth.auth().currentUser?.sendEmailVerification { (error) in
-                                if let error = error {
-                                    print("Failed to send verification.", error.localizedDescription)
-                                    return
+                                                    
+                           if Auth.auth().currentUser?.isEmailVerified == true {
+                               appState.hasOnboarded = true
+                               print("User signed in.")
+                            }
+                            else {
+                                showingAlert = true
+                                Auth.auth().currentUser?.sendEmailVerification { (error) in
+                                    if let error = error {
+                                        print("Failed to send verification.", error.localizedDescription)
+                                        return
+                                    }
                                 }
                             }
-                        } */
+                        }
                     }, label: {
                         Text("Sign In")
                             .foregroundColor(Color.white)
                             .frame(width:200, height: 50)
                             .background(Color("Color"))
                             .cornerRadius(4)
-                    }).alert("The credentials you have provided are invalid.", isPresented: $showingAlert){
+                    }).alert("The credentials you have provided are invalid. Make sure to verify your email address.", isPresented: $showingAlert){
                         Button("OK", role: .cancel) {}
                     }
                     
@@ -163,7 +171,7 @@ struct SignUpView: View {
                             .frame(width:200, height: 50)
                             .background(Color("Color"))
                             .cornerRadius(4)
-                    }).alert("Account was successfully created! Please verify your email address before signing in.", isPresented: $showingAlert){
+                    }).alert("Account was successfully created! A verification email has been sent to your address.", isPresented: $showingAlert){
                         Button("OK", role: .cancel) {}
                     }
                 }
@@ -205,11 +213,47 @@ struct ForgotPasswordView: View {
                     .background(Color("Color"))
                     .cornerRadius(4)
                     .alert(isPresented: $alertIsPresented, content: {
-                        Alert(title: Text("Reset Password Verification"), message: Text("A link has been sent to your email to reset your password."), dismissButton: .default(Text("Got it!")))
+                        Alert(title: Text("Reset Password Verification"), message: Text("A link has been sent to your email to reset your password."), dismissButton: .default(Text("OK")))
                     })
         }
     }
 }
+
+/*struct EmailConfirmationView: View {
+    @State private var netID: String = ""
+    @Environment(\.presentationMode) var presentationMode
+    @State private var alertIsPresented = false
+    
+    var body: some View {
+        VStack {
+           Text("Send Verification Email")
+                .font(.title)
+                .padding(.horizontal, 16)
+                .foregroundColor(Color("Color"))
+            
+            TextField("netID@scarletmail.rutgers.edu", text: $netID)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 4).stroke(self.netID != "" ? Color("Color") : Color("Color"),lineWidth: 2))
+                .frame(width: 350)
+            
+            
+                Button("Send") {
+                   sendConfirmationEmail(netID: netID)
+                    presentationMode.wrappedValue.dismiss()
+                    self.alertIsPresented = true
+                }
+                    .foregroundColor(Color.white)
+                    .frame(width:200, height: 50)
+                    .background(Color("Color"))
+                    .cornerRadius(4)
+                    .alert(isPresented: $alertIsPresented, content: {
+                        Alert(title: Text("Confirmation Email"), message: Text("A confirmation email has been sent to your email address."), dismissButton: .default(Text("OK")))
+                    })
+        }
+    }
+}*/
 
 
 struct LoginView_Previews: PreviewProvider {
@@ -288,6 +332,24 @@ private func passwordReset(netID: String) {
         print("Successfully sent reset password link.")
     }
 }
+
+/* private func sendConfirmationEmail(netID: String) {
+    let auth = Auth.auth()
+    
+    let actionCodeSettings = ActionCodeSettings()
+    actionCodeSettings.url = URL(string: "https://www.digitandroid-ff0a6.firebaseapp.com")
+    // The sign-in operation has to always be completed in the app.
+    actionCodeSettings.handleCodeInApp = true
+    actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
+    
+    auth.sendSignInLink(toEmail: netID, actionCodeSettings: actionCodeSettings) { (error) in
+        if let error = error {
+            print("Failed to send confirmation email.", error.localizedDescription)
+            return
+        }
+        print("Successfully sent confirmation email.")
+    }
+} */
 
 private func isValidEmail(_ email: String) -> Bool {
     let emailRegEx = "(?:[a-zA-Z0-9!#$%\\&‘*+/=?\\^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%\\&'*+/=?\\^_`{|}" +
