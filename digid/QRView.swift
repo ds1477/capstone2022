@@ -12,36 +12,45 @@ import FirebaseDatabase
 import CoreImage.CIFilterBuiltins
 
 struct QRView: View {
+    @ObservedObject var model = Model()
     var body: some View {
-        VStack {
-            Image("logo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 120, alignment: .center)
-            Text("QR Code")
-                .foregroundColor(Color.black)
-            QRCodeGenerator()
-            Spacer()
-            Button(action: {
-                QRCodeGenerator() //TODO: need to fix this so that the QR code updates
-            }, label: {
-                Text("Generate New QR Code")
-                    .foregroundColor(Color.white)
-                    .frame(width:250, height: 50)
-                    .background(Color("Color"))
-                    .cornerRadius(4)
-            })
-            Button (action: {
-                //Guest QR Code implementation
-            },label: {
-                Text("Generate Guest QR Code")
-                    .foregroundColor(Color.white)
-                    .frame(width:250, height: 50)
-                    .background(Color("Color"))
-                    .cornerRadius(4)
-            })
+            VStack {
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 120, alignment: .center)
+                Text("QR Code")
+                    .foregroundColor(Color.black)
+                QRCodeGenerator()
+                Spacer()
+                Button(action: {
+                    model.reloadView()
+                    updateUserVCode()
 
+                }, label: {
+                    Text("Generate New QR Code")
+                        .foregroundColor(Color.white)
+                        .frame(width:250, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                })
+                Button (action: {
+                    //Guest QR Code implementation
+                },label: {
+                    Text("Generate Guest QR Code")
+                        .foregroundColor(Color.white)
+                        .frame(width:250, height: 50)
+                        .background(Color("Color"))
+                        .cornerRadius(4)
+                })
+                Spacer()
+            }
         }
+}
+
+class Model: ObservableObject {
+    func reloadView() {
+        objectWillChange.send()
     }
 }
 
@@ -54,9 +63,10 @@ struct QRView_Previews: PreviewProvider {
 struct QRCodeGenerator : View {
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
-    let userInfo = getUserInfo()
+    
+    let userInfo = getUserEmail() + "_" + getUserVcode()
     var body: some View {
-        Image(uiImage: generateQRCodeImage(String: getUserInfo()))
+        Image(uiImage: generateQRCodeImage(String: userInfo))
             .interpolation(.none)
             .resizable()
             .frame(width: 250, height: 250, alignment: .center)
@@ -75,7 +85,7 @@ struct QRCodeGenerator : View {
     }
 }
 
-private func getUserInfo() -> (String) {
+private func getUserEmail() -> (String) {
     let defaults = UserDefaults.standard
     
     guard let user = Auth.auth().currentUser else {
@@ -86,15 +96,47 @@ private func getUserInfo() -> (String) {
     let uid = user.uid
     let ref = Database.database().reference()
     
-    ref.child("users").child(uid).observe(.value, with: { (snapshot) in
-        if let dictionary = snapshot.value as? NSDictionary {
-            let email = dictionary["email"] as? String ?? ""
-            let vcode = dictionary["vcode"] as? String ?? ""
-            
+    ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        if let dictionary = snapshot.value as? [String: Any] {
+            let email = dictionary["netID"] as? String ?? ""
+            print(email)
             defaults.set(email, forKey: "userEmailKey")
-            defaults.set(vcode, forKey: "userVcodeKey")
-
         }
     })
-    return defaults.string(forKey: "userEmailKey") ?? "No user exists" + "_" //+ defaults.string(forKey: "userVcodeKey") ?? "default value"
+    return defaults.string(forKey: "userEmailKey") ?? "No user exists"
+}
+
+private func getUserVcode() -> (String) {
+    let defaults = UserDefaults.standard
+    
+    guard let user = Auth.auth().currentUser else {
+        print("User not found")
+        return "No user exists"
+    }
+    
+    let uid = user.uid
+    let ref = Database.database().reference()
+    
+    ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        if let dictionary = snapshot.value as? [String: Any] {
+            let vcode = dictionary["VCode"] as? String ?? ""
+            print(vcode)
+            defaults.set(vcode, forKey: "userVcodeKey")
+        }
+    })
+    return defaults.string(forKey: "userVcodeKey") ?? "No Vcode exists"
+}
+
+private func updateUserVCode() {
+    guard let user = Auth.auth().currentUser else {
+        print("User not found")
+        return
+    }
+    
+     let uid = user.uid
+     let ref = Database.database().reference()
+     let random = Int.random(in: 0...567848) + Int.random(in: 0...567848)
+     let vcode = String(random)
+     
+     ref.child("users").child(uid).child("VCode").setValue(vcode)
 }
