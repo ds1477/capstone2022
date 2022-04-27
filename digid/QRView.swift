@@ -13,6 +13,8 @@ import CoreImage.CIFilterBuiltins
 
 struct QRView: View {
     @ObservedObject var model = Model()
+    @State var showGuestID: Bool = false
+    
     var body: some View {
             VStack {
                 Image("logo")
@@ -35,7 +37,7 @@ struct QRView: View {
                         .cornerRadius(4)
                 })
                 Button (action: {
-                    //Guest QR Code implementation
+                    showGuestID.toggle()
                 },label: {
                     Text("Generate Guest QR Code")
                         .foregroundColor(Color.white)
@@ -43,9 +45,27 @@ struct QRView: View {
                         .background(Color("Color"))
                         .cornerRadius(4)
                 })
+                    .sheet(isPresented: $showGuestID) {
+                    GuestIDView()
+                }
                 Spacer()
             }
         }
+}
+
+struct GuestIDView: View {
+    var body: some View {
+        VStack {
+            Image("logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 120, alignment: .center)
+            Text("Guest QR Code")
+                .foregroundColor(Color.black)
+            GuestQRCodeGenerator()
+            Spacer()
+        }
+    }
 }
 
 class Model: ObservableObject {
@@ -65,6 +85,31 @@ struct QRCodeGenerator : View {
     let filter = CIFilter.qrCodeGenerator()
     
     let userInfo = getUserEmail() + "_" + getUserVcode()
+    var body: some View {
+        Image(uiImage: generateQRCodeImage(String: userInfo))
+            .interpolation(.none)
+            .resizable()
+            .frame(width: 250, height: 250, alignment: .center)
+    }
+
+    func generateQRCodeImage(String : String) -> UIImage {
+        let data = Data(String.utf8)
+        filter.setValue(data, forKey: "inputMessage")
+
+        if let qrCodeImage = filter.outputImage {
+            if let qrCodeCGImage = context.createCGImage(qrCodeImage, from: qrCodeImage.extent) {
+                return UIImage(cgImage: qrCodeCGImage)
+            }
+        }
+        return UIImage(systemName: "xmark") ?? UIImage()
+    }
+}
+
+struct GuestQRCodeGenerator : View {
+    let context = CIContext()
+    let filter = CIFilter.qrCodeGenerator()
+    
+    let userInfo = getUserEmail() + "_" + getUserVcode() + "_guest"
     var body: some View {
         Image(uiImage: generateQRCodeImage(String: userInfo))
             .interpolation(.none)
